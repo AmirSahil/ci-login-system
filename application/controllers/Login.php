@@ -17,7 +17,7 @@ class Login extends CI_Controller {
 
  function index()
  {
-  $this->load->view('login');
+  $this->load->view('header');
  }
 
  function validation()
@@ -34,7 +34,7 @@ class Login extends CI_Controller {
    else
    {
     $this->session->set_flashdata('message',$result);
-    redirect('login');
+    redirect('header');
    }
   }
   else
