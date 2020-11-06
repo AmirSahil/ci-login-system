@@ -59,9 +59,7 @@
     display: flex;
     align-items: center;
   }
-  .login {
-    display: flex;
-  }
+ 
   nav form {
     display: flex;
     justify-content: center;
@@ -75,9 +73,7 @@
   input:focus {
     outline: none;
   }
-  .login input {
-    margin-right: 0.5rem;
-  }
+
   .button {
     padding: 0.5rem 1rem;
     border: none;
@@ -105,7 +101,37 @@
     font-weight: 300;
     color: black;
   }
+
+  .login {
+    width: 50vw;
+    margin: 0 auto;
+  }
+
+  .login input,
+  .login button {
+    margin-bottom: 1rem;
+    border: 1px solid rgb(99, 99, 99);
+  }
+
+  .login h1 {
+    text-align: center;
+    margin: 1.4rem 0rem 1rem 0rem;
+    font-size: 1.6rem;
+  }
   
+  .login form {
+    width: 40%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .register-button{
+    color: black;
+    margin: 0 auto;
+    text-align: center;
+    display:inline-block;
+  }
+
   .signup {
     width: 50vw;
     margin: 0 auto;
@@ -159,7 +185,9 @@
           <li><a href="#">About me</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
-        <div class="login">
+      </nav>
+    </header>
+    <div class="login">
             <?php
                 if($this->session->flashdata('message'))
                 {
@@ -170,18 +198,16 @@
                     ';
                 }
             ?>
-
+            <h1>Login</h1>
             <form method="post" action="<?php echo base_url(); ?>login/validation">
                     <input type="text" name="user_email" placeholder="Email"  value="<?php echo set_value('user_email'); ?>" />
                     
                     <input type="password" name="user_password" placeholder="Email"  value="<?php echo set_value('user_password'); ?>" />
                     
-                    <input type="submit" name="login" value="Login" placeholder="Email" class="button" /><a href="<?php echo base_url(); ?>register">Register</a>
+                    <input type="submit" name="login" value="Login" placeholder="Email" class="button" />
+                    <a href="<?php echo base_url(); ?>" class="register-button">No Account? Register</a>
             </form>
         </div>
-      </nav>
-    </header>
-
     <section>
     <span class="text-danger"><?php echo form_error('user_email'); ?></span>
     <span class="text-danger"><?php echo form_error('user_password'); ?></span>
