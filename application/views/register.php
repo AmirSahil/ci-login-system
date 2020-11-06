@@ -15,6 +15,7 @@
       <span class="text-danger"><?php echo form_error('user_password'); ?></span>
 
       <input type="submit" name="register" value="Register" class="button" />
+      <a href="<?php echo base_url(); ?>login" class="register-button">Already registered? Login</a>
       
     </form>
   </section>
