@@ -3,6 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
 
+   
+
  public function __construct()
  {
   parent::__construct();
@@ -17,7 +19,10 @@ class Login extends CI_Controller {
 
  function index()
  {
-  $this->load->view('login');
+    $page_data['page_title'] = 'Login';
+    $page_data['page'] = 'login';
+    $this->load->view('front/index',$page_data);
+//   $this->load->view('front/pages/login');
  }
 
  function validation()
@@ -34,7 +39,7 @@ class Login extends CI_Controller {
    else
    {
     $this->session->set_flashdata('message',$result);
-    redirect('login');
+    redirect('front/pages/login');
    }
   }
   else

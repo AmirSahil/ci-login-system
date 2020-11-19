@@ -18,7 +18,10 @@ class Register extends CI_Controller {
 
  function index()
  {
-  $this->load->view('register');
+    $page_data['page_title'] = 'Register';
+    $page_data['page'] = 'register';
+    $this->load->view('front/index',$page_data);
+//   $this->load->view('front/pages/register');
  }
 
  function validation()
@@ -65,7 +68,7 @@ class Register extends CI_Controller {
     if($this->email->send())
     {
      $this->session->set_flashdata('message', 'Check in your email for email verification mail');
-     redirect('register');
+     redirect('front/pages/register');
     }
    }
   }
