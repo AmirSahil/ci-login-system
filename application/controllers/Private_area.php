@@ -9,7 +9,7 @@ class Private_area extends CI_Controller {
   parent::__construct();
   if(!$this->session->userdata('id'))
   {
-   redirect('front/pages/login');
+   redirect('');
   }
  }
 
@@ -26,7 +26,7 @@ class Private_area extends CI_Controller {
   {
    $this->session->unset_userdata($row);
   }
-  redirect('front/pages/login');
+  redirect('');
  }
 }
 

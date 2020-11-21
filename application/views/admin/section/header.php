@@ -44,7 +44,7 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
-
+        
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -72,6 +72,17 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
+
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url();?>admin/users">
+                    <i class="fas fa-fw fa-user-alt"></i>
+                    <span>Users</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url();?>admin/products">
+                    <i class="fas fa-fw fa-shopping-basket"></i>
+                    <span>Products</span></a>
+            </li>
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">

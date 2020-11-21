@@ -44,6 +44,18 @@ class Admin extends CI_Controller {
 			$this->load->view('admin/login',$page_data);
 		}
 	}
+	public function products()
+	{
+		$page_data['page_title'] = "Products";
+		$page_data['page'] = 'products';
+		$this->load->view('admin/index',$page_data);
+	}
+	public function users()
+	{
+		$page_data['page_title'] = "Users";
+		$page_data['page'] = 'users';
+		$this->load->view('admin/index',$page_data);
+	}
 	public function logout()
 	{
 		$this->session->sess_destroy();
