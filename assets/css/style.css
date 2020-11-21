@@ -100,7 +100,7 @@
     border: 1px solid rgb(99, 99, 99);
   }
 
-  .login h1 {
+  .login h1, .logout h1 {
     text-align: center;
     margin: 1.4rem 0rem 1rem 0rem;
     font-size: 1.6rem;

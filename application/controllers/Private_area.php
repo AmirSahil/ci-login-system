@@ -15,8 +15,10 @@ class Private_area extends CI_Controller {
 
  function index()
  {
-  echo '<br /><br /><br /><h1 align="center">Welcome User</h1>';
-  echo '<p align="center"><a href="'.base_url().'private_area/logout">Logout</a></p>';
+       $page_data['page_title'] = 'Logout';
+       $page_data['page'] = 'logout';
+       $this->load->view('front/index',$page_data);
+   //   $this->load->view('front/pages/register');
  }
 
  function logout()
