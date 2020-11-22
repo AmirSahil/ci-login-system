@@ -10,13 +10,13 @@
         <div class="form-group row pr-5">
             <div class="col-xs-6">
                 <label for="exampleInputEmail1">Product Name</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Product Name" name="pname">
             </div>
         </div>
         <div class="form-group row pr-5">
             <div class="col-xs-6">
                 <label for="exampleInputEmail1">Product Price</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Product Price" name="pprice">
             </div>
         </div>
         <div class="form-group row pr-5">
@@ -28,7 +28,7 @@
         <div class="form-group row pr-5">
             <div class="col-xs-6">
                 <label for="exampleInputEmail1">Product Img</label>
-                <input type="file" class="btn btn-dark form-control" name="pimage">Upload</input>
+                <input type="file" class="btn btn-dark form-control" name="pimage">
             </div>
         </div>
         <div class="form-group row pr-5">
