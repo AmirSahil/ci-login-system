@@ -1,3 +1,8 @@
+<?php
+$link = mysqli_connect("localhost", "root", "");
+mysqli_select_db($link, "ciloginsystem");
+?>
+
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
@@ -35,18 +40,23 @@
             <div class="col-xs-6">
                 <label for="exampleInputEmail1">Category</label>
                 <select class="form-control" name="pcategory">
-                    <option>Shirt</option>
-                    <option>Pant</option>
-                    <option>Shoes</option>
+                    <option value="shirt">Shirt</option>
+                    <option value="pant">Pant</option>
+                    <option value="shoes">Shoes</option>
                 </select>
             </div>
         </div>
         <div class="form-group row pr-5">
             <div class="col-xs-6">
-                <button type="submit" class="btn btn-primary">Add</button>
+                <input type="submit" name="submit1" class="btn btn-primary" value="Upload">
             </div>
         </div>
     </form>
+
+    <?php
+    if(isset())
+    ?>
+
     <h4 class="example-title mt-4">Products List</h4>
     <div class="table-responsive">
         <table class="table">
