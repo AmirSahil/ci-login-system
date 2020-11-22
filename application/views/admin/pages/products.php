@@ -22,19 +22,23 @@
         <div class="form-group row pr-5">
             <div class="col-xs-6">
                 <label for="exampleInputEmail1">Product Qty</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Quantity" name="pqty">
             </div>
         </div>
         <div class="form-group row pr-5">
             <div class="col-xs-6">
                 <label for="exampleInputEmail1">Product Img</label>
-                <button type="upload" class="btn btn-dark form-control">Upload</button>
+                <input type="file" class="btn btn-dark form-control" name="pimage">Upload</input>
             </div>
         </div>
         <div class="form-group row pr-5">
             <div class="col-xs-6">
                 <label for="exampleInputEmail1">Category</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Category">
+                <select type="email" class="form-control" id="category" name="pcategory">
+                    <option>Shirt</option>
+                    <option>Pant</option>
+                    <option>Shoes</option>
+                </select>
             </div>
         </div>
         <div class="form-group row pr-5">
