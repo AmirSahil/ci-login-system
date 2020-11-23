@@ -16,7 +16,6 @@
 
     <!-- Custom styles for this template-->
     <link href="<?php echo base_url();?>assets/admin/css/sb-admin-2.min.css" rel="stylesheet">
-
 </head>
 
 <body id="page-top">

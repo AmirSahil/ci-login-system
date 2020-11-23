@@ -11,7 +11,7 @@ mysqli_select_db($link, "ciloginsystem");
     <h1 class="h3 mb-0 text-gray-800">Add Products</h1>
 </div>
 <div class="table-wrap">
-    <form action="" method="post" name="products_form" class="pl-3">
+    <form action="" method="post" class="pl-3" enctype="multipart/form-data">
         <div class="form-group row pr-5">
             <div class="col-xs-6">
                 <label for="exampleInputEmail1">Product Name</label>
@@ -33,7 +33,7 @@ mysqli_select_db($link, "ciloginsystem");
         <div class="form-group row pr-5">
             <div class="col-xs-6">
                 <label for="exampleInputEmail1">Product Img</label>
-                <input type="file" class="btn btn-dark form-control" name="pimage">
+                <input type="file" class="btn btn-dark form-control" name="pimage" id="pimage">
             </div>
         </div>
         <div class="form-group row pr-5">
@@ -48,13 +48,23 @@ mysqli_select_db($link, "ciloginsystem");
         </div>
         <div class="form-group row pr-5">
             <div class="col-xs-6">
-                <input type="submit" name="submit1" class="btn btn-primary" value="Upload">
+                <input type="submit" name="submit" class="btn btn-primary" value="Upload">
             </div>
         </div>
     </form>
 
     <?php
-    if(isset())
+    if (isset($_POST["submit1"])) {
+        $fnm = $_FILES["pimage"]["name"];
+        $dst = "./product_images/";
+        move_uploaded_file($_FILES["pimage"]["tmp_name"],$dst);
+    }
+
+    if(isset($_POST["submit"])) {
+        $target_dir = "./product_images/";
+        $target_file = $target_dir . basename($_FILES["pimage"]["name"]);
+        move_uploaded_file($_FILES["pimage"]["tmp_name"], $target_file);
+    }
     ?>
 
     <h4 class="example-title mt-4">Products List</h4>
