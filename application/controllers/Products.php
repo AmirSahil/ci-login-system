@@ -2,7 +2,9 @@
 class Products extends CI_Controller 
 {
     public function index(){
-        $this->load->view('admin/pages/products');
+        $page_data['page_title'] = 'Products';
+        $page_data['page'] = 'products';
+        $this->load->view('admin/index',$page_data);
     }
 
     public function form_validation(){
@@ -22,7 +24,7 @@ class Products extends CI_Controller
             );
 
             $this->Products_model->insert_data($data);
-            redirect(base_url() . "Products/inserted");
+            redirect(base_url()/admin . "Products/inserted");
 
         } else{
             $this->index();

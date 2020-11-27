@@ -1,5 +1,6 @@
 
-    <form method="post" class="pl-5" action="<?php echo base_url()?>admin/Products/form_validation">
+    <form method="post" class="pl-5" action="<?php echo base_url()?>Products/form_validation">
+    
     <?php
     if($this->uri->segment(2) == "inserted"){
         echo '<p class="text-success">Data Inserted</p>';
@@ -43,4 +44,5 @@
                 <input type="submit" name="upload" value="Upload"/>
             </div>
         </div>
+   
     </form>
