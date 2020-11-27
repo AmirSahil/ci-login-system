@@ -30,7 +30,7 @@ class Admin extends CI_Controller {
 			$last_name = $result[0]['last_name'];
 			$email = $result[0]['email_id'];
 
-			$this->session->set_userdata(admin_uid, $uid);
+			$this->session->set_userdata('admin_uid', $uid);
 			$this->session->set_userdata('admin_first_name', $first_name);
 			$this->session->set_userdata('admin_last_name', $last_name);
 			$this->session->set_userdata('admin_email', $email);
@@ -47,7 +47,7 @@ class Admin extends CI_Controller {
 	public function products()
 	{
 		$page_data['page_title'] = "Products";
-		$page_data['page'] = 'products';
+		$page_data['page'] = "products";
 		$this->load->view('admin/index',$page_data);
 	}
 	public function users()

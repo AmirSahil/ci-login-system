@@ -23,7 +23,7 @@ class Login_model extends CI_Model
     }
     else
     {
-     return 'First verified your email address';
+     return 'First verify your email address';
     }
    }
   }
