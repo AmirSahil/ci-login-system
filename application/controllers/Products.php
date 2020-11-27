@@ -24,7 +24,7 @@ class Products extends CI_Controller
             );
 
             $this->Products_model->insert_data($data);
-            redirect(base_url()/admin . "Products/inserted");
+            redirect(base_url() . "inserted");
 
         } else{
             $this->index();
