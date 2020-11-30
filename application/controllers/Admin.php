@@ -104,22 +104,25 @@ class Admin extends CI_Controller
         $this->products();
     }
 
-    public function users()
-    {
-        $page_data['page_title'] = "Users";
-        $page_data['page'] = 'users';
-        $this->load->view('admin/index', $page_data);
-    }
-
     public function logout()
     {
         $this->session->sess_destroy();
         redirect('admin');
+	}
+	
+	public function users()
+    {
+        $this->load->model("Users_model");
+        $page_data['fetch_data'] = $this->Users_model->fetch_data();
+        $page_data['page_title'] = 'Users';
+        $page_data['page'] = 'users';
+        $this->load->view("admin/index", $page_data);
     }
 
-    public function adduser()
+    public function addusers()
     {
-        $page_data['page'] = 'users';
+		$page_data['page_title'] = "Add Users";
+        $page_data['page'] = 'addusers';
         $this->load->view("admin/index", $page_data);
     }
 
@@ -141,14 +144,29 @@ class Admin extends CI_Controller
             );
 
             $this->AddUser_Model->insert_data($data);
-            redirect("admin/addusers/inserted1");
+            redirect("admin/addusers/users_inserted");
 
         } else {
-            $this->adduser();
+            $this->addusers();
         }
     }
-    public function inserted1()
+    public function users_inserted()
     {
-        $this->adduser();
+        $this->addusers();
+	}
+	
+	public function user_delete_data()
+    {
+        $id = $this->uri->segment(3);
+        $this->load->model("Users_model");
+        $this->Users_model->delete_data($id);
+        redirect("Admin/user_deleted");
     }
+
+    public function user_deleted()
+    {
+        $this->users();
+    }
+
 }
+
