@@ -53,22 +53,25 @@ class Admin extends CI_Controller
         $this->form_validation->set_rules("pname", "Product Name", 'required');
         $this->form_validation->set_rules("pprice", "Product Price", 'required|numeric|greater_than[0.99]');
         $this->form_validation->set_rules("pqty", "Product Quantity", 'required|numeric|greater_than[0.99]');
-
-        if ($this->form_validation->run()) {
-            $this->load->model("Addproducts_model");
-            $data = array(
-                'product_name' => $this->input->post('pname'),
-                'product_price' => $this->input->post('pprice'),
-                'product_qty' => $this->input->post('pqty'),
-                'product_image' => $this->input->post('pimage'),
-                'product_category' => $this->input->post('pcategory')
-            );
-
-            $this->Addproducts_model->insert_data($data);
-            redirect("admin/addproducts/inserted");
-
-        } else {
-            $this->addproducts();
+        if($this->session->userdata['admin_uid']){
+            if ($this->form_validation->run()) {
+                $this->load->model("Addproducts_model");
+                $data = array(
+                    'product_name' => $this->input->post('pname'),
+                    'product_price' => $this->input->post('pprice'),
+                    'product_qty' => $this->input->post('pqty'),
+                    'product_image' => $this->input->post('pimage'),
+                    'product_category' => $this->input->post('pcategory')
+                );
+    
+                $this->Addproducts_model->insert_data($data);
+                redirect("admin/addproducts/inserted");
+    
+            } else {
+                $this->addproducts();
+            }
+        } else{
+            $this->index();
         }
     }
 
@@ -133,23 +136,27 @@ class Admin extends CI_Controller
         $this->form_validation->set_rules("user_name", "User Name", 'required');
         $this->form_validation->set_rules("email_id", "Email", 'trim|required|valid_email');
         $this->form_validation->set_rules("password", "Password", 'required');
+        if($this->session->userdata['admin_uid']){  
+            if ($this->form_validation->run()) {
+                $this->load->model("AddUser_Model");
+                $data = array(
+                    'user_name' => $this->input->post('user_name'),
+                    'email_id' => $this->input->post('email_id'),
+                    'password' => sha1($this->input->post('password')),
+                    'login_status' => $this->input->post('login_status'),
+                );
 
-        if ($this->form_validation->run()) {
-            $this->load->model("AddUser_Model");
-            $data = array(
-                'user_name' => $this->input->post('user_name'),
-                'email_id' => $this->input->post('email_id'),
-                'password' => sha1($this->input->post('password')),
-                'login_status' => $this->input->post('login_status'),
-            );
+                $this->AddUser_Model->insert_data($data);
+                redirect("admin/addusers/users_inserted");
 
-            $this->AddUser_Model->insert_data($data);
-            redirect("admin/addusers/users_inserted");
-
-        } else {
-            $this->addusers();
+            } else {
+                $this->addusers();
+            }
+        } else{
+            $this->index();
         }
     }
+
     public function users_inserted()
     {
         $this->addusers();
