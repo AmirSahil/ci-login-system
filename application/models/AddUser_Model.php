@@ -1,5 +1,5 @@
 <?php
-class Products_model extends CI_Model 
+class AddUser_Model extends CI_Model
 {
 	function saverecords($data)
 	{
