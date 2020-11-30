@@ -1,48 +1,59 @@
 
-    <form method="post" class="pl-5" action="<?php echo base_url()?>Products/form_validation">
-    
-    <?php
-    if($this->uri->segment(2) == "inserted"){
-        echo '<p class="text-success">Data Inserted</p>';
-    }
-    ?>
-        <div class="form-group row pr-5">
-            <div class="col-xs-6">
-                <label for="pname">Product Name</label>
-                <input type="text" class="form-control" placeholder="Product Name" name="pname">
-                <span class="text-danger"><?php echo form_error("pname");?></span>
-            </div>
-        </div>
-        <div class="form-group row pr-5">
-            <div class="col-xs-6">
-                <label for="pprice">Product Price</label>
-                <input type="text" class="form-control" placeholder="Product Price" name="pprice">
-                <span class="text-danger"><?php echo form_error("pprice");?></span>
-            </div>
-        </div>
-        <div class="form-group row pr-5">
-            <div class="col-xs-6">
-                <label for="pqty">Product Qty</label>
-                <input type="text" class="form-control" placeholder="Enter Quantity" name="pqty">
-                <span class="text-danger"><?php echo form_error("pqty");?></span>
-            </div>
-        </div>
-        <div class="form-group row pr-5">
-            <div class="col-xs-6">
-                <label for="pimage">Product Image</label>
-                <input type="text" class="form-control" placeholder="Enter Image" name="pimage">
-            </div>
-        </div>
-        <div class="form-group row pr-5">
-            <div class="col-xs-6">
-                <label for="pcategory">Product Category</label>
-                <input type="text" class="form-control" placeholder="Enter Category" name="pcategory">
-            </div>
-        </div>
-        <div class="form-group row pr-5">
-            <div class="col-xs-6">
-                <input type="submit" name="upload" value="Upload"/>
-            </div>
-        </div>
-   
-    </form>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Products List</h1>
+</div>
+
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <a class="btn btn-dark btn-md float-right" href="<?php echo base_url();?>admin/addproducts">
+        <i class="fas fa-fw fa-shopping-basket"></i>
+        <span>Add Products</span>
+    </a>
+</div>
+
+<div class="table-wrap">
+    <div class="table-responsive">
+        <table class="table">
+        <thead>
+            <tr>
+            <th>ID</th>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Product Qty</th>
+            <th>Product Image</th>
+            <th>Product Category</th>
+            <th colspan="2" style="text-align:center">Actions<th>
+            </tr>
+        </thead>
+        <?php
+        if($fetch_data->num_rows() > 0) {
+            foreach($fetch_data->result() as $row){
+        ?>
+            <tr>
+                <td><?php echo $row->id; ?></td>
+                <td><?php echo $row->product_name; ?></td>
+                <td><?php echo $row->product_price; ?></td>
+                <td><?php echo $row->product_qty; ?></td>
+                <td><?php echo $row->product_image; ?></td>
+                <td><?php echo $row->product_category; ?></td>
+                <td style="text-align:center"><a href="#" class="delete_data" id="<?php echo $row->id; ?>">Delete</a></td>
+                <td style="text-align:center"><a href="<?php echo base_url();?>admin/addproducts/update_data/<?php echo $row->id;?>">Edit</a></td>
+            </tr>
+        <?php
+            }
+        } 
+        else{
+        ?>
+            <tr>
+                <td colspan="6">No Data Found</td>
+            </tr>
+        <?php
+        }
+        ?>
+        </table>
+    </div>
+    </div>
+<!-- /.container-fluid -->

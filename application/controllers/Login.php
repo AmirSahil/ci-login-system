@@ -22,7 +22,6 @@ class Login extends CI_Controller {
     $page_data['page_title'] = 'Login';
     $page_data['page'] = 'login';
     $this->load->view('front/index',$page_data);
-//   $this->load->view('front/pages/login');
  }
 
  function validation()

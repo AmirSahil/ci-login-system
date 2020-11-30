@@ -21,7 +21,6 @@ class Register extends CI_Controller {
     $page_data['page_title'] = 'Register';
     $page_data['page'] = 'register';
     $this->load->view('front/index',$page_data);
-//   $this->load->view('front/pages/register');
  }
 
  function validation()

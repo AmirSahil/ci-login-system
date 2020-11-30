@@ -16,6 +16,9 @@
 
     <!-- Custom styles for this template-->
     <link href="<?php echo base_url();?>assets/admin/css/sb-admin-2.min.css" rel="stylesheet">
+    <script src="<?php echo base_url();?>assets/admin/vendor/jquery/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body id="page-top">
@@ -82,6 +85,11 @@
                     <i class="fas fa-fw fa-shopping-basket"></i>
                     <span>Products</span></a>
             </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url();?>admin/addproducts">
+                    <i class="fas fa-fw fa-shopping-basket"></i>
+                    <span>Add Products</span></a>
+            </li> -->
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">

@@ -3,21 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
 	public function index()
 	{
 		if($this->input->post()){
@@ -44,18 +29,82 @@ class Admin extends CI_Controller {
 			$this->load->view('admin/login',$page_data);
 		}
 	}
+
 	public function products()
 	{
-		$page_data['page_title'] = "Products";
-		$page_data['page'] = "products";
+		$this->load->model("Products_model");
+        $page_data['fetch_data'] = $this->Products_model->fetch_data();
+        $page_data['page_title'] = 'Products';
+        $page_data['page'] = 'products';
+        $this->load->view("admin/index", $page_data);
+	}
+
+	public function addproducts()
+	{
+		$page_data['page_title'] = "Add Products";
+		$page_data['page'] = "addproducts";
 		$this->load->view('admin/index',$page_data);
 	}
+
+	public function form_validation(){
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules("pname", "Product Name", 'required');
+        $this->form_validation->set_rules("pprice", "Product Price", 'required|numeric|greater_than[0.99]');
+        $this->form_validation->set_rules("pqty", "Product Quantity", 'required|numeric|greater_than[0.99]');
+
+        if($this->form_validation->run()){
+            $this->load->model("Addproducts_model");
+            $data = array(
+                'product_name'  => $this->input->post('pname'),
+                'product_price'  => $this->input->post('pprice'),
+                'product_qty'  => $this->input->post('pqty'),
+                'product_image'  => $this->input->post('pimage'),
+                'product_category'  => $this->input->post('pcategory')
+            );
+
+            $this->Addproducts_model->insert_data($data);
+            redirect("admin/addproducts/inserted");
+
+        } else{
+            $this->addproducts();
+        }
+    }
+    
+    public function inserted(){
+        $this->addproducts();
+    }
+
+	public function delete_data(){
+		$id = $this->uri->segment(3);
+		$this->load->model("Products_model");
+		$this->Products_model->delete_data($id);
+		redirect("Admin/deleted");
+	}
+
+	public function deleted(){
+		$this->products();
+	}
+
+	public function update_data(){
+		$user_id = $this->uri->segment(4);
+		$this->load->model("Products_model");
+		$user_data = $this->Products_model->fetch_single_data($user_id);
+		$data['page'] = 'addproducts';
+		$this->load->view('admin/index/addproducts',$user_data);
+	}
+ 
+   public function updated()  
+   {  
+		$this->products();  
+   }  
+
 	public function users()
 	{
 		$page_data['page_title'] = "Users";
 		$page_data['page'] = 'users';
 		$this->load->view('admin/index',$page_data);
 	}
+	
 	public function logout()
 	{
 		$this->session->sess_destroy();
