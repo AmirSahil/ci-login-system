@@ -139,7 +139,7 @@ class Admin extends CI_Controller
             $data = array(
                 'user_name' => $this->input->post('user_name'),
                 'email_id' => $this->input->post('email_id'),
-                'password' => $this->input->post('password'),
+                'password' => sha1($this->input->post('password')),
                 'login_status' => $this->input->post('login_status'),
             );
 
