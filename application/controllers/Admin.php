@@ -10,7 +10,7 @@ class Admin extends CI_Controller
             $email = $this->input->post('email_id');
             $password = sha1($this->input->post('password'));
 
-            $result = $this->db->get_where('users', array('email_id' => $email, 'password' => $password, 'account_status' => 1, 'role' => 'ADMIN'))->result_array();
+            $result = $this->db->get_where('users', array('email_id' => $email, 'password' => $password, 'login_status' => 'Active', 'role' => 'System Admin'))->result_array();
             $uid = $result[0]['id'];
             $first_name = $result[0]['first_name'];
             $last_name = $result[0]['last_name'];
@@ -133,16 +133,19 @@ class Admin extends CI_Controller
     public function usr_form_validation()
     {
         $this->load->library('form_validation');
-        $this->form_validation->set_rules("user_name", "User Name", 'required');
+        $this->form_validation->set_rules("first_name", "First Name", 'required');
+        $this->form_validation->set_rules("last_name", "Last Name", 'required');
         $this->form_validation->set_rules("email_id", "Email", 'trim|required|valid_email');
         $this->form_validation->set_rules("password", "Password", 'required');
         if($this->session->userdata['admin_uid']){  
             if ($this->form_validation->run()) {
                 $this->load->model("AddUser_Model");
                 $data = array(
-                    'user_name' => $this->input->post('user_name'),
+                    'first_name' => $this->input->post('first_name'),
+                    'last_name' => $this->input->post('last_name'),
                     'email_id' => $this->input->post('email_id'),
                     'password' => sha1($this->input->post('password')),
+                    'role' => $this->input->post('role'),
                     'login_status' => $this->input->post('login_status'),
                 );
 

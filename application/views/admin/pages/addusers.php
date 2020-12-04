@@ -22,9 +22,16 @@
         </div>
         <div class="form-group row pr-5">
             <div class="col-xs-6">
-                <label for="user_name">User Name</label>
-                <input type="text" class="form-control"  name="user_name">
-                <span class="text-danger"><?php echo form_error("user_name");?></span>
+                <label for="first_name">First Name</label>
+                <input type="text" class="form-control"  name="first_name">
+                <span class="text-danger"><?php echo form_error("first_name");?></span>
+            </div>
+        </div>
+        <div class="form-group row pr-5">
+            <div class="col-xs-6">
+                <label for="last_name">Last Name</label>
+                <input type="text" class="form-control"  name="last_name">
+                <span class="text-danger"><?php echo form_error("last_name");?></span>
             </div>
         </div>
         <div class="form-group row pr-5">
@@ -43,11 +50,19 @@
         </div>
         <div class="form-group row pr-5">
             <div class="col-xs-6">
+                <label for="role">Role</label>
+                <select class="form-control" name="role">
+                    <option>System Admin</option>
+                    <option>Product Manager</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row pr-5">
+            <div class="col-xs-6">
                 <label for="login_status">Login Status</label>
                 <select class="form-control" name="login_status">
                     <option>Active</option>
                     <option>Not Active</option>
-
                 </select>
             </div>
         </div>

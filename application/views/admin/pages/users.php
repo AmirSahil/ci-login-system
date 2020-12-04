@@ -20,9 +20,11 @@
         <thead>
             <tr>
             <th>ID</th>
-            <th>User Name</th>
+            <th>First Name</th>
+            <th>Last Name</th>
             <th>Email</th>
             <th>Password</th>
+            <th>Role</th>
             <th>Login Status</th>
             <th colspan="2" style="text-align:center">Actions<th>
             </tr>
@@ -33,9 +35,11 @@
         ?>
             <tr>
                 <td><?php echo $row->id; ?></td>
-                <td><?php echo $row->user_name; ?></td>
+                <td><?php echo $row->first_name; ?></td>
+                <td><?php echo $row->last_name; ?></td>
                 <td><?php echo $row->email_id; ?></td>
                 <td><?php echo $row->password; ?></td>
+                <td><?php echo $row->role; ?></td>
                 <td><?php echo $row->login_status; ?></td>
                 <td style="text-align:center"><a href="#" class="user_delete_data" id="<?php echo $row->id; ?>">Delete</a></td>
                 <td style="text-align:center"><a href="<?php echo base_url();?>admin/addproducts/users_update_data/<?php echo $row->id;?>">Edit</a></td>
