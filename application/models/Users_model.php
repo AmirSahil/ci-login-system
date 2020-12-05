@@ -11,12 +11,12 @@ class Users_model extends CI_Model {
     $this->db->delete("users");
   }
 
-  function fetch_single_data($id){
-    $this->db->where("id", $id);
-    $query = $this->db->query("SELECT * FROM users WHERE id = $id");
-    return $query;
-  }  
-   
+    function edit_users($id){
+        $this->db->select('*');
+        $this->db->where("id", $id);
+        $row = $this->db->get("users");
+        return $row->row_array();
+    }
   function update_data($data, $id){  
     $this->db->where("id", $id);  
     $this->db->update("users", $data);
