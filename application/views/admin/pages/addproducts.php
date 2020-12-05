@@ -55,12 +55,11 @@
             <div class="col-xs-6">
                 <label for="pcategory">Product Category</label>
                 <select class="form-control" name="pcategory">
-                    <option>Shirt</option>
+                    <option>T-Shirt</option>
                     <option>Pant</option>
                     <option>Shorts</option>
-                    <option>T-Shirt</option>
                     <option>Shoes</option>
-                    <option>Socks</option>
+                    <option>Caps</option>
                     <option>Others</option>
                 </select>
             </div>

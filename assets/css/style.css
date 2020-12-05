@@ -4,7 +4,7 @@
     box-sizing: border-box;
   }
   body {
-    font-size: 62.5%;
+    font-size: 100%;
     font-family: "Poppins", sans-serif;
   }
   
@@ -103,7 +103,14 @@
   .login h1, .logout h1 {
     text-align: center;
     margin: 1.4rem 0rem 1rem 0rem;
-    font-size: 1.6rem;
+    font-size: 3rem;
+  }
+
+  .logout h2 {
+    text-align: center;
+    margin: 1.4rem 0rem 1rem 0rem;
+    font-size: 1.3rem;
+    color: rgb(54, 54, 54);
   }
   
   .login form {
@@ -172,3 +179,52 @@
   .nav-button:hover{
     background: rgb(207, 207, 207);
   }
+
+
+.products{
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.tiles{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin-bottom: 5rem;
+}
+
+.details{
+  position: relative;
+}
+
+.pimage{
+  height: 35rem;
+  width: 35rem;
+}
+
+.pid{
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 15px;
+  color: white;
+  background: rgb(0, 0, 0);
+}
+
+.pname{
+  font-size: 1.6rem;
+}
+
+.pprice{
+  font-size: 1.2rem;
+  padding-top: 2px;
+}
+
+.pcategory{
+  color: #7a7a7a;
+  padding-top: 1px;
+}
+

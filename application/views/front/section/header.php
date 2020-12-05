@@ -25,7 +25,7 @@
             echo '<li><a class="nav-button" href="register">Register</a></li>';
           } else if ($page_title == 'Register'){
             echo '<li><a class="nav-button" href="login">Login</a></li>';
-          } else if($page_title == 'Logout'){
+          } else if($page_title == 'User Home'){
             echo '<li><a class="nav-button" href="'.base_url().'private_area/logout">Logout</a></li>';
           }else{
             echo '<li><a class="nav-button" href="login">Login</a></li>';

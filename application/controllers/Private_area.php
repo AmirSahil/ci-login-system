@@ -15,8 +15,8 @@ class Private_area extends CI_Controller {
 
  function index()
  {
-    $this->load->model("Products_model");
-    $page_data['fetch_data'] = $this->Products_model->fetch_data();
+    $this->load->model("Home_model");
+    $page_data['fetch_data'] = $this->Home_model->fetch_data();
     $page_data['page_title'] = 'User Home';
     $page_data['page'] = 'userhome';
     $this->load->view('front/index',$page_data);
