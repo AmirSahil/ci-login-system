@@ -67,7 +67,7 @@ class Register extends CI_Controller {
     if($this->email->send())
     {
      $this->session->set_flashdata('message', 'Check in your email for email verification mail');
-     redirect('front/pages/register');
+     redirect('login');
     }
    }
   }

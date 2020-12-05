@@ -11,14 +11,15 @@ class Products_model extends CI_Model {
     $this->db->delete("products");
   }
 
-  function fetch_single_data($id){
-    $this->db->where("id", $id);
-    $query = $this->db->query("SELECT * FROM products WHERE id = $id");
-    return $query;
-  }  
-   
-  function update_data($data, $id){  
+  function edit_products($id){  
+    $this->db->select('*');
     $this->db->where("id", $id);  
-    $this->db->update("products", $data);  
+    $row = $this->db->get("products");  
+    return $row->row_array();
   }  
+
+  function product_update($id, $data){
+    $this->db->where("id", $id);  
+    $this->db->update('products', $data);
+  }
 }

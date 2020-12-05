@@ -1,4 +1,6 @@
 
+
+
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
@@ -40,7 +42,7 @@
                 <td><?php echo $row->product_image; ?></td>
                 <td><?php echo $row->product_category; ?></td>
                 <td style="text-align:center"><a href="#" class="delete_data" id="<?php echo $row->id; ?>">Delete</a></td>
-                <td style="text-align:center"><a href="<?php echo base_url();?>admin/addproducts/update_data/<?php echo $row->id;?>">Edit</a></td>
+                <td style="text-align:center"><a href="<?php echo base_url();?>Admin/update_data/<?php echo $row->id;?>">Edit</a>
             </tr>
         <?php
             }

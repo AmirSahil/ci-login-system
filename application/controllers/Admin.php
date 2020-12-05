@@ -10,7 +10,7 @@ class Admin extends CI_Controller
             $email = $this->input->post('email_id');
             $password = sha1($this->input->post('password'));
 
-            $result = $this->db->get_where('users', array('email_id' => $email, 'password' => $password, 'login_status' => 'Active', 'role' => 'System Admin'))->result_array();
+            $result = $this->db->get_where('users', array('email_id' => $email, 'password' => $password, 'account_status' => 1, 'role' => 'ADMIN'))->result_array();
             $uid = $result[0]['id'];
             $first_name = $result[0]['first_name'];
             $last_name = $result[0]['last_name'];
@@ -47,12 +47,16 @@ class Admin extends CI_Controller
         $this->load->view('admin/index', $page_data);
     }
 
+
+
     public function form_validation()
     {
         $this->load->library('form_validation');
         $this->form_validation->set_rules("pname", "Product Name", 'required');
         $this->form_validation->set_rules("pprice", "Product Price", 'required|numeric|greater_than[0.99]');
         $this->form_validation->set_rules("pqty", "Product Quantity", 'required|numeric|greater_than[0.99]');
+
+
         if($this->session->userdata['admin_uid']){
             if ($this->form_validation->run()) {
                 $this->load->model("Addproducts_model");
@@ -95,16 +99,47 @@ class Admin extends CI_Controller
 
     public function update_data()
     {
-        $user_id = $this->uri->segment(4);
         $this->load->model("Products_model");
-        $user_data = $this->Products_model->fetch_single_data($user_id);
-        $data['page'] = 'addproducts';
-        $this->load->view('admin/index/addproducts', $user_data);
+        $page_data['edit'] = $this->Products_model->edit_products($this->uri->segment('3'));
+        $page_data['page'] = 'editproducts';
+        $this->load->view("admin/index", $page_data);
     }
 
-    public function updated()
+    public function update()
     {
-        $this->products();
+        $config['upload_path'] = './uploads/';
+        $config['allowed_types'] = 'gif|jpg|png';
+
+
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules("pname", "Product Name", 'required');
+        $this->form_validation->set_rules("pprice", "Product Price", 'required|numeric|greater_than[0.99]');
+        $this->form_validation->set_rules("pqty", "Product Quantity", 'required|numeric|greater_than[0.99]');
+        if (empty($_FILES['pimage']['name']))
+        {
+            $this->form_validation->set_rules('pimage', 'Image', 'required');
+        }
+
+        if($this->session->userdata['admin_uid']){
+            if ($this->form_validation->run()) {
+                $this->load->model("Products_model");
+                $data = array(
+                    'product_name' => $this->input->post('pname'),
+                    'product_price' => $this->input->post('pprice'),
+                    'product_qty' => $this->input->post('pqty'),
+                    'product_image' => $this->input->post('pimage'),
+                    'product_category' => $this->input->post('pcategory')
+                );
+    
+                $this->Products_model->product_update($this->uri->segment('3'), $data);
+                $this->products();
+    
+            } else {
+                $this->update_data();
+            }
+        } else{
+            $this->index();
+        }
     }
 
     public function logout()
