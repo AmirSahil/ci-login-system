@@ -1,6 +1,6 @@
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4 pl-4">
-    <a class="btn btn-dark btn-md float-right" href="<?php echo base_url();?>admin/products"> 
+    <a class="btn btn-dark btn-md float-right" href="<?php echo base_url();?>admin/users">
         <i class="fas fa-fw fa-arrow-left"></i>
         <span> &nbsp; Back</span>
     </a>
@@ -10,7 +10,7 @@
         <h1 class="h3 mb-0 text-gray-800">Edit User</h1>
     </div>
     <?php extract($edit);?>
-    <form method="post" class="pl-5" action="<?php echo base_url()?>Admin/userupdate/<?php echo $id;?>">
+    <form method="post" class="pl-5" action="<?php echo base_url()?>Admin/update_user/<?php echo $id;?>">
         <div class="form-group row pr-5">
             <?php
                 if($this->uri->segment(3) == "inserted"){
