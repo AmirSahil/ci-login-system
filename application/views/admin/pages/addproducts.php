@@ -13,15 +13,6 @@
     <form method="post" class="pl-5" action="<?php echo base_url()?>Admin/form_validation" enctype="multipart/form-data">
         <div class="form-group row pr-5">
         <div class="col-xs-6">
-            <?php
-                if($this->uri->segment(3) == "inserted"){
-                    echo '<p class="text-success">Data Inserted</p>';
-                }
-                if($this->uri->segment(2) == "updated")  
-                {  
-                echo '<p class="text-success">Data Updated</p>';  
-                }  
-            ?>  
             </div>
         </div>
         <div class="form-group row pr-5">

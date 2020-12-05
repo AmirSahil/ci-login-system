@@ -67,7 +67,7 @@ class Admin extends CI_Controller
                 );
 
                 $this->Addproducts_model->insert_data($data);
-                redirect("admin/addproducts/inserted");
+                redirect("admin/products");
 
             } else {
                 $this->addproducts();
@@ -79,7 +79,7 @@ class Admin extends CI_Controller
 
     public function inserted()
     {
-        $this->addproducts();
+        $this->products();
     }
 
     public function delete_data()
