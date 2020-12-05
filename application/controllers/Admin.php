@@ -10,7 +10,7 @@ class Admin extends CI_Controller
             $email = $this->input->post('email_id');
             $password = sha1($this->input->post('password'));
 
-            $result = $this->db->get_where('users', array('email_id' => $email, 'password' => $password, 'account_status' => 1, 'role' => 'ADMIN'))->result_array();
+            $result = $this->db->get_where('users', array('email_id' => $email, 'password' => $password, 'role' => 'System Admin', 'login_status'=>'Active'))->result_array();
             $uid = $result[0]['id'];
             $first_name = $result[0]['first_name'];
             $last_name = $result[0]['last_name'];
