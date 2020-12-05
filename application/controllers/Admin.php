@@ -47,8 +47,6 @@ class Admin extends CI_Controller
         $this->load->view('admin/index', $page_data);
     }
 
-
-
     public function form_validation()
     {
         $this->load->library('form_validation');

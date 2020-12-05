@@ -16,7 +16,7 @@ class Private_area extends CI_Controller {
  function index()
  {
        $page_data['page_title'] = 'Logout';
-       $page_data['page'] = 'logout';
+       $page_data['page'] = 'userhome';
        $this->load->view('front/index',$page_data);
    //   $this->load->view('front/pages/register');
  }
