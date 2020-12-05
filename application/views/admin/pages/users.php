@@ -42,7 +42,7 @@
                 <td><?php echo $row->role; ?></td>
                 <td><?php echo $row->login_status; ?></td>
                 <td style="text-align:center"><a href="#" class="user_delete_data" id="<?php echo $row->id; ?>">Delete</a></td>
-                <td style="text-align:center"><a href="<?php echo base_url();?>admin/addproducts/users_update_data/<?php echo $row->id;?>">Edit</a></td>
+                <td style="text-align:center"><a href="<?php echo base_url();?>Admin/user_update/<?php echo $row->id;?>">Edit</a>
             </tr>
         <?php
             }

@@ -65,10 +65,10 @@ class Admin extends CI_Controller
                     'product_image' => $this->input->post('pimage'),
                     'product_category' => $this->input->post('pcategory')
                 );
-    
+
                 $this->Addproducts_model->insert_data($data);
                 redirect("admin/addproducts/inserted");
-    
+
             } else {
                 $this->addproducts();
             }
@@ -128,10 +128,10 @@ class Admin extends CI_Controller
                     'product_image' => $this->input->post('pimage'),
                     'product_category' => $this->input->post('pcategory')
                 );
-    
+
                 $this->Products_model->product_update($this->uri->segment('3'), $data);
                 $this->products();
-    
+
             } else {
                 $this->update_data();
             }
@@ -144,9 +144,9 @@ class Admin extends CI_Controller
     {
         $this->session->sess_destroy();
         redirect('admin');
-	}
-	
-	public function users()
+    }
+
+    public function users()
     {
         $this->load->model("Users_model");
         $page_data['fetch_data'] = $this->Users_model->fetch_data();
@@ -157,7 +157,7 @@ class Admin extends CI_Controller
 
     public function addusers()
     {
-		$page_data['page_title'] = "Add Users";
+        $page_data['page_title'] = "Add Users";
         $page_data['page'] = 'addusers';
         $this->load->view("admin/index", $page_data);
     }
@@ -170,7 +170,7 @@ class Admin extends CI_Controller
         $this->form_validation->set_rules("last_name", "Last Name", 'required');
         $this->form_validation->set_rules("email_id", "Email", 'trim|required|valid_email');
         $this->form_validation->set_rules("password", "Password", 'required');
-        if($this->session->userdata['admin_uid']){  
+        if($this->session->userdata['admin_uid']){
             if ($this->form_validation->run()) {
                 $this->load->model("AddUser_Model");
                 $data = array(
@@ -196,9 +196,9 @@ class Admin extends CI_Controller
     public function users_inserted()
     {
         $this->addusers();
-	}
-	
-	public function user_delete_data()
+    }
+
+    public function user_delete_data()
     {
         $id = $this->uri->segment(3);
         $this->load->model("Users_model");
@@ -210,6 +210,11 @@ class Admin extends CI_Controller
     {
         $this->users();
     }
-
+    public function user_update()
+    {
+        $this->load->model("Users_model");
+        $page_data['edit'] = $this->Users_model->edit_users($this->uri->segment('3'));
+        $page_data['page'] = 'editusers';
+        $this->load->view("admin/index", $page_data);
+    }
 }
-
