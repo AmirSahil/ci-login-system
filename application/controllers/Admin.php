@@ -217,4 +217,41 @@ class Admin extends CI_Controller
         $page_data['page'] = 'editusers';
         $this->load->view("admin/index", $page_data);
     }
+
+    public function update_user()
+    {
+        $config['upload_path'] = './uploads/';
+        $config['allowed_types'] = 'gif|jpg|png';
+
+
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules("pname", "Product Name", 'required');
+        $this->form_validation->set_rules("pprice", "Product Price", 'required|numeric|greater_than[0.99]');
+        $this->form_validation->set_rules("pqty", "Product Quantity", 'required|numeric|greater_than[0.99]');
+        if (empty($_FILES['pimage']['name']))
+        {
+            $this->form_validation->set_rules('pimage', 'Image', 'required');
+        }
+
+        if($this->session->userdata['admin_uid']){
+            if ($this->form_validation->run()) {
+                $this->load->model("Products_model");
+                $data = array(
+                    'product_name' => $this->input->post('pname'),
+                    'product_price' => $this->input->post('pprice'),
+                    'product_qty' => $this->input->post('pqty'),
+                    'product_image' => $this->input->post('pimage'),
+                    'product_category' => $this->input->post('pcategory')
+                );
+
+                $this->Products_model->product_update($this->uri->segment('3'), $data);
+                $this->products();
+
+            } else {
+                $this->update_data();
+            }
+        } else{
+            $this->index();
+        }
+    }
 }
