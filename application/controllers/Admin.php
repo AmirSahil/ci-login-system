@@ -191,7 +191,7 @@ class Admin extends CI_Controller
                 );
 
                 $this->AddUser_Model->insert_data($data);
-                redirect("admin/addusers/users_inserted");
+                redirect("admin/users");
 
             } else {
                 $this->addusers();
@@ -227,36 +227,29 @@ class Admin extends CI_Controller
     }
 
     public function update_user()
-    {
-        $config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'gif|jpg|png';
-
-
-        $this->load->library('form_validation');
-        $this->form_validation->set_rules("pname", "Product Name", 'required');
-        $this->form_validation->set_rules("pprice", "Product Price", 'required|numeric|greater_than[0.99]');
-        $this->form_validation->set_rules("pqty", "Product Quantity", 'required|numeric|greater_than[0.99]');
-        if (empty($_FILES['pimage']['name']))
-        {
-            $this->form_validation->set_rules('pimage', 'Image', 'required');
-        }
+    { $this->load->library('form_validation');
+        $this->form_validation->set_rules("first_name", "First Name", 'required');
+        $this->form_validation->set_rules("last_name", "Last Name", 'required');
+        $this->form_validation->set_rules("email_id", "Email", 'trim|required|valid_email');
+        $this->form_validation->set_rules("password", "Password", 'required');
 
         if($this->session->userdata['admin_uid']){
             if ($this->form_validation->run()) {
-                $this->load->model("Products_model");
+                $this->load->model("Users_model");
                 $data = array(
-                    'product_name' => $this->input->post('pname'),
-                    'product_price' => $this->input->post('pprice'),
-                    'product_qty' => $this->input->post('pqty'),
-                    'product_image' => $this->input->post('pimage'),
-                    'product_category' => $this->input->post('pcategory')
+                    'first_name' => $this->input->post('first_name'),
+                    'last_name' => $this->input->post('last_name'),
+                    'email_id' => $this->input->post('email_id'),
+                    'password' => sha1($this->input->post('password')),
+                    'role' => $this->input->post('role'),
+                    'login_status' => $this->input->post('login_status'),
                 );
 
-                $this->Products_model->product_update($this->uri->segment('3'), $data);
-                $this->products();
+                $this->Users_model->usersdata_update($this->uri->segment('3'), $data);
+                $this->users();
 
             } else {
-                $this->update_data();
+                $this-> user_update();
             }
         } else{
             $this->index();

@@ -17,8 +17,8 @@ class Users_model extends CI_Model {
         $row = $this->db->get("users");
         return $row->row_array();
     }
-  function update_data($data, $id){  
-    $this->db->where("id", $id);  
-    $this->db->update("users", $data);
-  }  
+    function usersdata_update($id, $data){
+        $this->db->where("id", $id);
+        $this->db->update('users', $data);
+    }
 }
