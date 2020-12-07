@@ -1,0 +1,52 @@
+.products{
+    display: flex;
+  }
+  
+  .tiles{
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .details{
+    position: relative;
+  }
+  
+  .pimage{
+    height: 35rem;
+    width: 35rem;
+  }
+  
+  .pid{
+    padding: 10px 15px;
+    color: black;
+    font-weight: 700;
+  }
+  
+  .image{
+      margin-right: 2rem;
+      margin-left: 1.6rem;
+      border: 1px solid rgb(230, 230, 230);
+  }
+
+  .pname{
+    font-size: 3.5rem;
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+  }
+  
+  .pprice{
+    font-size: 2rem;
+    color: rgb(0, 0, 0);
+    padding-top: 2px;
+  }
+
+  .pqty{
+    font-size: 1.8rem;
+    color: rgb(0, 0, 0);
+    padding-top: 2px;
+  }
+  
+  .pcategory{
+    color: #7a7a7a;
+    margin-top: 5rem;
+  }
