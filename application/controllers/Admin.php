@@ -140,6 +140,14 @@ class Admin extends CI_Controller
         }
     }
 
+    public function view_product()
+    {
+        $this->load->model("Viewproduct_model");
+        $page_data['edit'] = $this->Viewproduct_model->view_products($this->uri->segment('3'));
+        $page_data['page'] = 'viewproduct';
+        $this->load->view("admin/index", $page_data);
+    }
+
     public function logout()
     {
         $this->session->sess_destroy();

@@ -22,4 +22,11 @@ class Products_model extends CI_Model {
     $this->db->where("id", $id);  
     $this->db->update('products', $data);
   }
+
+  function view_products($id){  
+    $this->db->select('*');
+    $this->db->where("id", $id);  
+    $row = $this->db->get("products");  
+    return $row->row_array();
+  }
 }
