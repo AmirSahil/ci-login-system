@@ -18,7 +18,7 @@
   
   .pid{
     padding: 10px 15px;
-    color: black;
+    color: #000000;
     font-weight: 700;
   }
   
@@ -29,7 +29,7 @@
   }
 
   .pname{
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     color: rgb(0, 0, 0);
     font-weight: 700;
   }
