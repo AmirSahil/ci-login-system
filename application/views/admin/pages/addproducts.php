@@ -39,7 +39,7 @@
         <div class="form-group row pr-5">
             <div class="col-xs-6">
                 <label for="pimage">Product Image</label>
-                <input type="text" class="form-control" placeholder="Enter Image" name="pimage">
+                <input type="file" class="form-control" placeholder="Enter Image" name="pimage">
             </div>
         </div>
         <div class="form-group row pr-5">

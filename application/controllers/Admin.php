@@ -49,31 +49,45 @@ class Admin extends CI_Controller
 
     public function form_validation()
     {
-        $this->load->library('form_validation');
+        $config['upload_path']          = './uploads/';
+        $config['allowed_types']        = 'gif|jpg|png';
+    	$config['max_size']             = 1000;
+        $config['max_width']            = 10240;
+        $config['max_height']           = 7680;
+        
+        $this->load->library('upload', $config);
+
+		$this->load->library('form_validation');
         $this->form_validation->set_rules("pname", "Product Name", 'required');
         $this->form_validation->set_rules("pprice", "Product Price", 'required|numeric|greater_than[0.99]');
         $this->form_validation->set_rules("pqty", "Product Quantity", 'required|numeric|greater_than[0.99]');
 
-
-        if($this->session->userdata['admin_uid']){
-            if ($this->form_validation->run()) {
-                $this->load->model("Addproducts_model");
-                $data = array(
-                    'product_name' => $this->input->post('pname'),
-                    'product_price' => $this->input->post('pprice'),
-                    'product_qty' => $this->input->post('pqty'),
-                    'product_image' => $this->input->post('pimage'),
-                    'product_category' => $this->input->post('pcategory')
-                );
-
-                $this->Addproducts_model->insert_data($data);
-                redirect("admin/products");
-
-            } else {
-                $this->addproducts();
-            }
-        } else{
-            $this->index();
+		if ( ! $this->upload->do_upload('pimage')){
+            echo $this->upload->display_errors();
+        }
+        else{
+			if($this->session->userdata['admin_uid']){
+				if ($this->form_validation->run()) {
+					$img = $this->upload->data();
+					$filename = $img['file_name'];
+					$data = array(
+						'product_name' => $this->input->post('pname'),
+						'product_price' => $this->input->post('pprice'),
+						'product_qty' => $this->input->post('pqty'),
+						'product_image' => $filename,
+						'product_category' => $this->input->post('pcategory')
+					);
+                    
+                    $this->load->model('Addproducts_model');
+					$this->Addproducts_model->insert_data($data);
+					redirect("admin/products");
+	
+				} else {
+					$this->addproducts();
+				}
+			} else{
+				$this->index();
+			}
         }
     }
 
@@ -105,38 +119,45 @@ class Admin extends CI_Controller
 
     public function update()
     {
-        $config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'gif|jpg|png';
+        $config['upload_path']          = './uploads/';
+        $config['allowed_types']        = '*';
+    	$config['max_size']             = 100000;
+        $config['max_width']            = 1024000;
+        $config['max_height']           = 768000;
+        
+        $this->load->library('upload', $config);
 
-
-        $this->load->library('form_validation');
+		$this->load->library('form_validation');
         $this->form_validation->set_rules("pname", "Product Name", 'required');
         $this->form_validation->set_rules("pprice", "Product Price", 'required|numeric|greater_than[0.99]');
         $this->form_validation->set_rules("pqty", "Product Quantity", 'required|numeric|greater_than[0.99]');
-        if (empty($_FILES['pimage']['name']))
-        {
-            $this->form_validation->set_rules('pimage', 'Image', 'required');
+
+		if ( ! $this->upload->do_upload('pimage')){
+            echo $this->upload->display_errors();
         }
-
-        if($this->session->userdata['admin_uid']){
-            if ($this->form_validation->run()) {
-                $this->load->model("Products_model");
-                $data = array(
-                    'product_name' => $this->input->post('pname'),
-                    'product_price' => $this->input->post('pprice'),
-                    'product_qty' => $this->input->post('pqty'),
-                    'product_image' => $this->input->post('pimage'),
-                    'product_category' => $this->input->post('pcategory')
-                );
-
-                $this->Products_model->product_update($this->uri->segment('3'), $data);
-                $this->products();
-
-            } else {
-                $this->update_data();
-            }
-        } else{
-            $this->index();
+        else{
+			if($this->session->userdata['admin_uid']){
+				if ($this->form_validation->run()) {
+					$img = $this->upload->data();
+					$filename = $img['file_name'];
+					$data = array(
+						'product_name' => $this->input->post('pname'),
+						'product_price' => $this->input->post('pprice'),
+						'product_qty' => $this->input->post('pqty'),
+						'product_image' => $filename,
+						'product_category' => $this->input->post('pcategory')
+					);
+                    
+                    $this->load->model('Products_model');
+                    $this->Products_model->product_update($this->uri->segment('3'), $data);
+                    redirect("admin/products");
+	
+				} else {
+					$this->update_data();
+				}
+			} else{
+				$this->index();
+			}
         }
     }
 

@@ -10,7 +10,7 @@
         <h1 class="h3 mb-0 text-gray-800">Edit Product</h1>
     </div>
     <?php extract($edit);?>
-    <form method="post" class="pl-5" action="<?php echo base_url()?>Admin/update/<?php echo $id;?>">
+    <form method="post" class="pl-5" action="<?php echo base_url()?>Admin/update/<?php echo $id;?>" enctype="multipart/form-data">
         <div class="form-group row pr-5">
             <?php
                 if($this->uri->segment(3) == "inserted"){
@@ -46,15 +46,9 @@
         <div class="form-group row pr-5">
             <div class="col-xs-6">
                 <label for="pimage">Product Image</label>
-                <input type="text" class="form-control" placeholder="Enter Image" value="<?php echo $product_image;?>" name="pimage">
+                <input type="file" class="form-control" placeholder="Enter Image" name="pimage">
             </div>
         </div>
-        <!-- <div class="form-group row pr-5">
-            <div class="col-xs-6">
-                <label for="pcategory">Product Category</label>
-                <input type="text" class="form-control" placeholder="Enter Category" name="pcategory">
-            </div>
-        </div> -->
         <div class="form-group row pr-5">
             <div class="col-xs-6">
                 <label for="pcategory">Product Category</label>
