@@ -11,7 +11,7 @@
 
 <div class="tiles">  
 <div class="details">
-    <img class="pimage" src="<?php echo base_url()?>uploads/pic<?php echo $row->id; ?>.png" alt="">
+    <img class="pimage" src="<?php echo base_url('uploads')?>/<?php echo $product_image;?>" alt="">
     <p class="pid">Product ID:&nbsp;<?php echo $row->id; ?></p>
     <h3 class="pname"><?php echo $row->product_name; ?></h3>
     <h4 class="pprice">₹<?php echo $row->product_price; ?>/-</h4>

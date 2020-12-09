@@ -13,7 +13,7 @@
     <div class="products">
         <div class="tiles">  
             <div class="image">
-                <img class="pimage" src="<?php echo base_url('uploads')?>/<?php echo $pimage; ?>" alt="">
+                <img class="pimage" src="<?php echo base_url('uploads')?>/<?php echo $product_image;?>" alt="">
             </div>
             <div class="details">
                 <h3 class="pname"><?php echo $product_name; ?></h3>
