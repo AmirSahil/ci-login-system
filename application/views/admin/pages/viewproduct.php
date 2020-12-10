@@ -19,7 +19,7 @@
                 <h3 class="pname"><?php echo $product_name; ?></h3>
                 <h4 class="pprice">₹<?php echo $product_price; ?>/-</h4>
                 <h4 class="pqty">Quantity Available: &nbsp;<?php echo $product_qty;?></h4>
-                <span class="pcategory"><?php echo $product_category; ?></span>
+                <p class="pcategory"><?php echo $product_category; ?></p>
             </div>
         </div>
     </div>

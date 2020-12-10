@@ -6,6 +6,7 @@
   body {
     font-size: 100%;
     font-family: "Poppins", sans-serif;
+    line-height: normal;
   }
   
   header {
@@ -27,24 +28,29 @@
     font-size: 1.3rem;
     font-weight: 600;
     letter-spacing: 1px;
+    color: #ffffff;
+    text-decoration: none;
   }
   nav ul {
     display: flex;
-    justify-content: space-around;
+    justify-content: right;
     align-items: center;
+    margin-bottom: 0px;
   }
   nav ul li {
-    margin-right: 2rem;
+    margin-left: 2rem;
     list-style: none;
     color: #ffffff;
   }
-  a {
+  
+  li a{
     text-decoration: none;
     color: #ffffff;
     padding: 1rem;
     font-size: 0.8rem;
     display: flex;
     align-items: center;
+    justify-content: center;
   }
  
   nav form {
@@ -72,7 +78,7 @@
   }
   button:hover {
     background: #c4c4c4;
-    color: rgb(0, 0, 0);
+    color: rgb(34, 34, 34);
   }
   .seperation {
     border-right: 2px solid white;
@@ -86,7 +92,7 @@
     background: #dddddd;
     font-size: 1.5rem;
     font-weight: 300;
-    color: black;
+    color: rgb(34, 34, 34);
   }
 
   .login {
@@ -120,7 +126,7 @@
     flex-direction: column;
   }
   .register-button{
-    color: black;
+    color: rgb(34, 34, 34);
     margin: 0 auto;
     text-align: center;
     display:inline-block;
@@ -172,7 +178,7 @@
   .nav-button{
     padding: 0.6rem 1rem;
     background: rgb(233, 233, 233);
-    color: black;
+    color: rgb(34, 34, 34);
     transition: all 0.3s ease-in-out;
   }
 
@@ -184,25 +190,32 @@
 .products{
   display: flex;
   flex-direction: row;
-  width: 100vw;
+  width: 90vw;
   justify-content: center;
+  align-items: center;
+  margin: 0 auto;
   flex-wrap: wrap;
+  cursor: pointer;
 }
 
 .tiles{
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: 2.5rem;
   margin-bottom: 5rem;
 }
 
 .details{
   position: relative;
+  display: inline;
+  padding: 0;
+  color: rgb(34, 34, 34);
+  text-decoration: none;
 }
 
 .pimage{
-  height: 35rem;
-  width: 35rem;
+  height: 28rem;
+  width: 28rem;
 }
 
 .pid{
@@ -211,11 +224,13 @@
   left: 0;
   padding: 10px 15px;
   color: white;
-  background: rgb(0, 0, 0);
+  background: rgb(34, 34, 34);
 }
 
 .pname{
+  margin-top: 0.8rem;
   font-size: 1.6rem;
+  font-weight: 700;
 }
 
 .pprice{
@@ -228,3 +243,126 @@
   padding-top: 1px;
 }
 
+
+.main{
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.products_view{
+  display: flex;
+}
+
+.tiles_view{
+  display: flex;
+  flex-direction: row;
+}
+
+.pimage_view{
+  height: 35rem;
+  width: 35rem;
+  cursor: pointer;
+}
+
+.products_view{
+  margin-top: 5rem;
+  position: relative;
+}
+
+.pid_view{
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 15px;
+  color: white;
+  background: rgb(34, 34, 34);
+}
+
+.image_view{
+    margin-right: 2rem;
+}
+
+.pname_view{
+  font-size: 3.2rem;
+  color: rgb(34, 34, 34);
+  font-weight: 700;
+}
+
+.pprice_view{
+  font-size: 2rem;
+  color: rgb(34, 34, 34);
+  padding-top: 2px;
+}
+
+.pqty_view{
+  display: none;
+  font-size: 1.8rem;
+  color: rgb(34, 34, 34);
+  padding-top: 2px;
+}
+
+.pcategory_view{
+  color: #7a7a7a;
+  margin-top: 1rem;
+}
+
+.atc{
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 10px 40px;
+  font-size: 1.1rem;
+  color: white;
+  background: rgb(34, 34, 34);
+  text-decoration: none;
+}
+
+.act:hover{
+  color: gray;
+}
+
+
+
+
+.main-container{
+  width: 80vw;
+  margin: 0 auto;
+}
+
+.quantity{
+  width: 2.5rem;
+  text-align: center;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.plus, .minus{
+  color: white;
+  background: rgb(34, 34, 34);
+  width: 2.5rem;
+  height: 2.5rem;
+  transition: 0.2s ease;
+  border: none;
+}
+
+.plus:hover, .minus:hover{
+  color: white;
+  background: rgb(78, 78, 78);
+}
+
+.cart-button{
+  text-decoration: none;
+  color: white;
+}
+
+.cart-button:hover{
+  color: rgb(209, 209, 209);
+}

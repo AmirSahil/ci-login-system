@@ -10,13 +10,13 @@
         ?>
 
 <div class="tiles">  
-<div class="details">
-    <img class="pimage" src="<?php echo base_url('uploads')?>/<?php echo $product_image;?>" alt="">
-    <p class="pid">Product ID:&nbsp;<?php echo $row->id; ?></p>
+<a href="<?php echo base_url();?>private_area/product_view/<?php echo $row->id;?>" class="details">
+    <img class="pimage" src="<?php echo base_url('uploads')?>/<?php echo $row->product_image;?>" alt="">
+    <p class="pid">Product ID:&nbsp;<span class="id"><?php echo $row->id; ?></span></p>
     <h3 class="pname"><?php echo $row->product_name; ?></h3>
     <h4 class="pprice">₹<?php echo $row->product_price; ?>/-</h4>
     <span class="pcategory"><?php echo $row->product_category; ?></span>
-  </div>
+  </a>
 </div>
 
 
