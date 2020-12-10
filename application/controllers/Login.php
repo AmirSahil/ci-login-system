@@ -18,7 +18,7 @@ class Login extends CI_Controller {
  }
 
  function index()
- {
+ { 
     $page_data['page_title'] = 'Login';
     $page_data['page'] = 'login';
     $this->load->view('front/index',$page_data);

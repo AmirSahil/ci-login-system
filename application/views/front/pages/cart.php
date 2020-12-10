@@ -124,7 +124,7 @@
           <?php
           } else{
           ?>
-            <h5 >No items in your cart, <?php echo $name;?></h5>
+            <h5 >No items in your cart, <?php echo $fetch_user;?></h5>
 
 <?php
 }

@@ -17,6 +17,7 @@ class Private_area extends CI_Controller {
  {
     $this->load->model("Home_model");
     $page_data['fetch_data'] = $this->Home_model->fetch_data();
+    $page_data['fetch_user'] = $this->session->userdata('name');
     $page_data['page_title'] = 'User Home';
     $page_data['page'] = 'userhome';
     $this->load->view('front/index',$page_data);
@@ -66,7 +67,7 @@ class Private_area extends CI_Controller {
       $this->load->model("Cart_model");
       $page_data['fetch_data'] = $this->Cart_model->fetch_data();
       $page_data['total_price'] = $this->Cart_model->total($this->session->userdata('id'));
-      $page_data['fetch_user'] = $this->Cart_model->fetch_user($this->session->userdata('id'));
+      $page_data['fetch_user'] = $this->session->userdata('name');
       $page_data['page_title'] = 'User Cart';
       $page_data['page'] = 'cart';
       $this->load->view("front/index", $page_data);

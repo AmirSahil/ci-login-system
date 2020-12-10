@@ -1,6 +1,6 @@
 
 <div class="logout">
-    <h1>Welcome Back!</h1>  
+    <h1>Welcome Back <?php echo $fetch_user;?>!</h1>  
     <h2>Hot Deals</h2>          
 </div>
 <div class="products">
