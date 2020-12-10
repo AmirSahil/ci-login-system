@@ -83,8 +83,18 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url();?>admin/products">
-                    <i class="fas fa-fw fa-shopping-basket"></i>
+                    <i class="fas fa-fw fa-circle"></i>
                     <span>Products</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url();?>admin/usercart">
+                    <i class="fas fa-fw fa-shopping-basket"></i>
+                    <span>Users Cart</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url();?>admin/orders">
+                    <i class="fas fa-fw fa-shopping-bag"></i>
+                    <span>Orders</span></a>
             </li>
             <!-- <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url();?>admin/addproducts">

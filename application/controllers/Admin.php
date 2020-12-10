@@ -40,6 +40,24 @@ class Admin extends CI_Controller
         $this->load->view("admin/index", $page_data);
     }
 
+    public function usercart()
+    {
+        $this->load->model("Cart_model");
+        $page_data['fetch_data'] = $this->Cart_model->fetch_data();
+        $page_data['page_title'] = 'Users Cart';
+        $page_data['page'] = 'usercart';
+        $this->load->view("admin/index", $page_data);
+    }
+
+    public function orders()
+    {
+        $this->load->model("Cart_model");
+        $page_data['fetch_data'] = $this->Cart_model->fetch_orders();
+        $page_data['page_title'] = 'Orders';
+        $page_data['page'] = 'orders';
+        $this->load->view("admin/index", $page_data);
+    }
+
     public function addproducts()
     {
         $page_data['page_title'] = "Add Products";
