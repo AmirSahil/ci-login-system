@@ -29,16 +29,8 @@
             echo '<li><a class="nav-button" href="register">Register</a></li>';
           } else if ($page_title == 'Register'){
             echo '<li><a class="nav-button" href="login">Login</a></li>';
-          } else if($page_title == 'User Home'){
-            echo '<li><a class="nav-button" href="'.base_url().'private_area/cart"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp;Cart</a></li>';
-            echo '<li><a class="nav-button" href="'.base_url().'private_area/logout">Logout</a></li>';
-          } else if($page_title == 'User Cart'){
-            echo '<li><a class="nav-button" href="'.base_url().'private_area/cart"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp;Cart</a></li>';
-            echo '<li><a class="nav-button" href="'.base_url().'private_area/logout">Logout</a></li>';
-          } else if($page_title == 'User Checkout'){
-            echo '<li><a class="nav-button" href="'.base_url().'private_area/cart"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp;Cart</a></li>';
-            echo '<li><a class="nav-button" href="'.base_url().'private_area/logout">Logout</a></li>';
-          } else if($page_title == 'Product View'){
+          } else if($page_title == 'User Home' or $page_title == 'User Cart' or $page_title == 'User Checkout' or $page_title == 'Product View' or $page_title == 'Order Placed' or $page_title == 'My Orders'){
+            echo '<li><a href="'.base_url().'private_area/myorders">My orders</a></li>';
             echo '<li><a class="nav-button" href="'.base_url().'private_area/cart"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp;Cart</a></li>';
             echo '<li><a class="nav-button" href="'.base_url().'private_area/logout">Logout</a></li>';
           } else{

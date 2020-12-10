@@ -13,7 +13,7 @@
 
           <h5 class="mb-4">Cart</h5>
 
-          <hr class="mb-4">
+          
           <?php
 
           if($fetch_data->num_rows() > 0) {
@@ -21,7 +21,7 @@
               if($row->user_id == $this->session->userdata('id')){
           
           ?>
-
+          <hr class="mb-4">
           <div class="row mb-4">
               <div class="col-md-5 col-lg-3 col-xl-3">
                   <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
@@ -49,7 +49,6 @@
               </div>
             </div>
           </div>
-          <hr class="mb-4">
           <?php 
               }
             }
@@ -113,7 +112,7 @@
                 </div>
                 <!-- Card -->
           
-                
+                 
               </div>
               <!--Grid column-->
           
@@ -124,6 +123,7 @@
           <?php
           } else{
           ?>
+          <hr class="mb-4">
             <h5 >No items in your cart, <?php echo $fetch_user;?></h5>
 
 <?php

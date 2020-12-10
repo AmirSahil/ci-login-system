@@ -365,3 +365,29 @@ input[type=number] {
 .cart-button:hover{
   color: rgb(209, 209, 209);
 }
+
+.main-thankyou{
+  margin-top: 4rem;
+}
+
+.ty-line2{
+  margin-bottom: 2rem;
+}
+
+.orders-button{
+  padding: 0.7rem 2rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.back-button{
+  padding: 1rem 2rem;
+}
+
+.lead-bottom{
+  margin-top: 4rem;
+}
+
+.myorders{
+  margin: 3rem auto;
+}
