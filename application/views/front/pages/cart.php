@@ -11,15 +11,17 @@
       <div class="mb-3 card">
         <div class="pt-4 card-body">
 
-          <h5 class="mb-4">Cart</h5>
+                <h5 class="mb-4">Cart&nbsp;<small class="text-gray"></small></h5>
+
+
 
           
           <?php
 
           if($fetch_data->num_rows() > 0) {
             foreach($fetch_data->result() as $row){
+              $count = 0;
               if($row->user_id == $this->session->userdata('id')){
-          
           ?>
           <hr class="mb-4">
           <div class="row mb-4">

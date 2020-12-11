@@ -27,7 +27,9 @@ class Private_area extends CI_Controller {
  public function product_view()
     {
         $this->load->model("Viewproduct_model");
+        $this->load->model("Cart_model");
         $page_data['edit'] = $this->Viewproduct_model->view_products($this->uri->segment('3'));
+        $page_data['fetch_data'] = $this->Cart_model->fetch_data();
         $page_data['page_title'] = 'Product View';
         $page_data['page'] = 'productview';
         $this->load->view("front/index", $page_data);
@@ -53,7 +55,7 @@ class Private_area extends CI_Controller {
                     
           $this->load->model('Cart_model');
           $this->Cart_model->insert_data($data);
-          $this->cart();
+          redirect('private_area/cart');
         } else{
           $this->product_view();
         }

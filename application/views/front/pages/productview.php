@@ -15,13 +15,13 @@
                 <div>
                 <form method="post" class="pl-5" action="<?php echo base_url()?>private_area/add_cart/<?php echo $id;?>">
                     <div class="def-number-input number-input safari_only mb-0 w-100">
-                      <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                      <button onclick="this.parentNode.querySelector('.quantity').stepDown()"
                         class="minus decrease"><i class="fa fa-minus" aria-hidden="true"></i></button>
                       <input class="quantity" min="1" name="quantity" value="1" type="number">
-                      <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                      <button onclick="this.parentNode.querySelector('.quantity').stepUp()"
                         class="plus increase"><i class="fa fa-plus" aria-hidden="true"></i></button>
                     </div>
-                  <input type="submit" class="btn btn-dark btn-md rounded-0 mt-4 atc" name="upload" value="Add to Cart"/>
+                  <input type="submit" class="btn btn-dark btn-md rounded-0 mt-4 atc addtocart" name="upload" value="Add to Cart"/>
                 </form>
                 </div>
                 <?php

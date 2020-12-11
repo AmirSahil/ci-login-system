@@ -391,3 +391,15 @@ input[type=number] {
 .myorders{
   margin: 3rem auto;
 }
+
+.cart-counter{
+  display:inline-block;
+  width:20px;
+  opacity:0;
+  height:20px;
+  background:red;
+  text-align:center;
+  border-radius:50%;
+  margin-left:10px;
+  color: black;
+}
