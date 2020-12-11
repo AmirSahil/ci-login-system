@@ -270,7 +270,6 @@ class Admin extends CI_Controller
         $this->form_validation->set_rules("first_name", "First Name", 'required');
         $this->form_validation->set_rules("last_name", "Last Name", 'required');
         $this->form_validation->set_rules("email_id", "Email", 'trim|required|valid_email');
-        $this->form_validation->set_rules("password", "Password", 'required');
 
         if($this->session->userdata['admin_uid']){
             if ($this->form_validation->run()) {
@@ -279,7 +278,6 @@ class Admin extends CI_Controller
                     'first_name' => $this->input->post('first_name'),
                     'last_name' => $this->input->post('last_name'),
                     'email_id' => $this->input->post('email_id'),
-                    'password' => sha1($this->input->post('password')),
                     'role' => $this->input->post('role'),
                     'login_status' => $this->input->post('login_status'),
                 );
@@ -293,5 +291,12 @@ class Admin extends CI_Controller
         } else{
             $this->index();
         }
+    }
+    public function view_user()
+    {
+        $this->load->model("Viewuser_model");
+        $page_data['edit'] = $this->Viewuser_model->view_user($this->uri->segment('3'));
+        $page_data['page'] = 'viewuser';
+        $this->load->view("admin/index", $page_data);
     }
 }

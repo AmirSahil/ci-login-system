@@ -43,6 +43,7 @@
                 <td><?php echo $row->login_status; ?></td>
                 <td style="text-align:center"><a href="#" class="user_delete_data" id="<?php echo $row->id; ?>">Delete</a></td>
                 <td style="text-align:center"><a href="<?php echo base_url();?>Admin/user_update/<?php echo $row->id;?>">Edit</a>
+                <td style="text-align:center"><a href="<?php echo base_url();?>admin/view_user/<?php echo $row->id;?>">View</a></td>
             </tr>
         <?php
             }

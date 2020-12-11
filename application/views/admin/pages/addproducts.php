@@ -6,7 +6,7 @@
     </a>
     </div>
 
-    <div class="d-sm-flex align-items-center justify-content-between mb-2 pl-4">
+    <div class="d0-sm-flex align-items-center justify-content-between mb-2 pl-4">
         <h1 class="h3 mb-0 text-gray-800">Add Products</h1>
     </div>
     <?php echo $error;?>
@@ -52,7 +52,7 @@
                     <option>Shoes</option>
                     <option>Caps</option>
                     <option>Others</option>
-                </select>
+                 </select>
             </div>
         </div>
         <div class="form-group row pr-5 pt-2">

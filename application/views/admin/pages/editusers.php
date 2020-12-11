@@ -45,13 +45,6 @@
         </div>
         <div class="form-group row pr-5">
             <div class="col-xs-6">
-                <label for="pqty">Password</label>
-                <input type="text" class="form-control" placeholder="Password" value="<?php echo $password;?>" name="password">
-                <span class="text-danger"><?php echo form_error("password");?></span>
-            </div>
-        </div>
-        <div class="form-group row pr-5">
-            <div class="col-xs-6">
                 <label for="role">Role</label>
                 <select class="form-control" <?php echo $role;?> name="role">
                     <option>System Admin</option>
