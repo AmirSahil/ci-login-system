@@ -77,7 +77,11 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
-
+            <?php
+            $role = $this->session->userdata('admin_role');
+            if ($role=="System Admin")
+            {
+            ?>
             <?php 
             if ($this->uri->segment('2') == 'users'){
                 echo '<li class="nav-item active">';
@@ -122,7 +126,47 @@
                     <i class="fas fa-fw fa-shopping-bag"></i>
                     <span>Orders</span></a>
             </li>
-            
+            <?php
+            }
+            else
+            {
+            ?>
+            <?php
+            if ($this->uri->segment('2') == 'products'){
+                echo '<li class="nav-item active">';
+            }else{
+                echo '<li class="nav-item">';
+            }
+            ?>
+            <a class="nav-link" href="<?php echo base_url();?>admin/products">
+                <i class="fas fa-fw fa-circle"></i>
+                <span>Products</span></a>
+            </li>
+            <?php
+            if ($this->uri->segment('2') == 'usercart'){
+                echo '<li class="nav-item active">';
+            }else{
+                echo '<li class="nav-item">';
+            }
+            ?>
+            <a class="nav-link" href="<?php echo base_url();?>admin/usercart">
+                <i class="fas fa-fw fa-shopping-basket"></i>
+                <span>Users Cart</span></a>
+            </li>
+            <?php
+            if ($this->uri->segment('2') == 'orders'){
+                echo '<li class="nav-item active">';
+            }else{
+                echo '<li class="nav-item">';
+            }
+            ?>
+            <a class="nav-link" href="<?php echo base_url();?>admin/orders">
+                <i class="fas fa-fw fa-shopping-bag"></i>
+                <span>Orders</span></a>
+            </li>
+            <?php
+            }
+            ?>
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
