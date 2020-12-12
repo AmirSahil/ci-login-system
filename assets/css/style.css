@@ -51,7 +51,7 @@ li a{
   text-decoration: none;
   color: #ffffff;
   padding: 1rem;
-  font-size: 1rem;
+  font-size: 0.9rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -184,9 +184,17 @@ button:hover {
   background: rgb(233, 233, 233);
   color: rgb(34, 34, 34);
   transition: all 0.3s ease-in-out;
-  width: 8rem;
-  height: 3rem;
+  height: 2.6rem;
   text-align: center;
+}
+.cart-button{
+  background: rgb(233, 233, 233);
+  color: rgb(34, 34, 34);
+  transition: all 0.3s ease-in-out;
+  width: 8rem;
+  height: 2.6rem;
+  text-align: center;
+  
 }
 
 .nav-button:hover{
@@ -364,10 +372,7 @@ color: white;
 background: rgb(78, 78, 78);
 }
 
-.cart-button{
-text-decoration: none;
-color: white;
-}
+
 
 .cart-button:hover{
 color: rgb(209, 209, 209);
@@ -401,8 +406,8 @@ margin: 3rem auto;
 
 .cart-counter{
 display:flex;
-width:30px;
-height: 30px;
+width: 26px;
+height: 26px;
 background:rgb(75, 75, 75);
 text-align:center;
 justify-content: center;
