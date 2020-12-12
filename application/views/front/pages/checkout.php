@@ -46,19 +46,19 @@
           <!-- Address Part 1 -->
           <div class="md-form md-outline mb-4">
           <label for="form14">Address</label>
-            <input type="text" name="address" id="form14" placeholder="House number and street name" class="form-control">
+            <input type="text" name="address" id="address" placeholder="House number and street name" class="form-control">
           </div>
 
           <!-- Phone -->
           <div class="md-form md-outline mb-4">
           <label for="form18">Phone</label>
-            <input type="number" name="phone" id="form18" class="form-control">
+            <input type="number" name="phone" id="phone" class="form-control">
           </div>
 
           <!-- Email address -->
           <div class="md-form md-outline mb-4">
           <label for="form19">Email address</label>
-            <input type="email" name="email" id="form19" class="form-control">
+            <input type="email" name="email" id="email" class="form-control">
           </div>
 
         </div>
