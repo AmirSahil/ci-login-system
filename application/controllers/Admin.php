@@ -43,7 +43,7 @@ class Admin extends CI_Controller
     public function usercart()
     {
         $this->load->model("Cart_model");
-        $page_data['fetch_data'] = $this->Cart_model->fetch_data();
+        $page_data['fetch_data'] = $this->Cart_model->fetch_data_all();
         $page_data['page_title'] = 'Users Cart';
         $page_data['page'] = 'usercart';
         $this->load->view("admin/index", $page_data);

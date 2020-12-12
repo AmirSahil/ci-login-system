@@ -14,6 +14,11 @@ class Cart_model extends CI_Model
 		return $query;
 	  }  
 
+	  function fetch_data_all(){
+		$query = $this->db->query("SELECT * FROM user_cart ORDER BY id ASC");
+		return $query;
+	  }  
+
 	  function fetch_products(){
 		$query = $this->db->query("SELECT * FROM products ORDER BY id ASC");
 		return $query;
