@@ -188,7 +188,7 @@ button:hover {
   height: 2.6rem;
   text-align: center;
 }
-.cart-button{
+.cart-top{
   background: rgb(233, 233, 233);
   color: rgb(34, 34, 34);
   transition: all 0.3s ease-in-out;
@@ -416,4 +416,8 @@ align-items: center;
 border-radius:50%;
 margin-left:10px;
 color: white;
+}
+
+a{
+  text-decoration: none;
 }
