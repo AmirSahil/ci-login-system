@@ -71,9 +71,9 @@ class Admin extends CI_Controller
     {
         $config['upload_path']          = './uploads/';
         $config['allowed_types']        = 'gif|jpg|png';
-    	$config['max_size']             = 1000;
+    	$config['max_size']             = 100000;
         $config['max_width']            = 10240;
-        $config['max_height']           = 7680;
+        $config['max_height']           = 76800;
         
         $this->load->library('upload', $config);
 
@@ -122,6 +122,19 @@ class Admin extends CI_Controller
         $this->load->model("Products_model");
         $this->Products_model->delete_data($id);
         redirect("Admin/deleted");
+    }
+
+    public function delete_order()
+    {
+        $id = $this->uri->segment(3);
+        $this->load->model("Cart_model");
+        $this->Cart_model->delete_data($id);
+        redirect("Admin/order_deleted");
+    }
+
+    public function order_deleted()
+    {
+        $this->orders();
     }
 
     public function deleted()

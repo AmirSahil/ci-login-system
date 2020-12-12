@@ -43,4 +43,9 @@ class Cart_model extends CI_Model
 		$this->db->where("user_id", $id);
 		$this->db->delete("user_cart");
 	}
+
+	function delete_order($id){
+		$this->db->where("id", $id);
+		$this->db->delete("user_checkout");
+	  }
 }

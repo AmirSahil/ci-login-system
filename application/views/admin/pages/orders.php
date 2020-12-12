@@ -42,6 +42,7 @@
                 <td><?php echo $row->email; ?></td>
                 <td><?php echo $row->product_qty; ?></td>
                 <td><?php echo $row->sub_total; ?></td>
+                <td style="text-align:center"><a href="#" class="delete_order" id="<?php echo $row->id; ?>">Delete</a></td>
             </tr>
         <?php
             }
@@ -57,3 +58,18 @@
         </table>
     </div>
     </div>
+
+    <script>
+
+$(document).ready(function(){
+    $('.delete_order').click(function(){
+        var id = $(this).attr("id");
+        if(confirm("Are you sure you want to delete this?")){
+            window.location = "delete_order/"+id;
+        } else{
+            return false;
+        }
+    });
+});
+
+    </script>
