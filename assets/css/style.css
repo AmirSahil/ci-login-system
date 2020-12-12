@@ -198,6 +198,10 @@ button:hover {
   
 }
 
+.cart-button{
+  color: white;
+}
+
 .nav-button:hover{
   background: rgb(207, 207, 207);
 }

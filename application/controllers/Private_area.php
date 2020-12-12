@@ -83,6 +83,7 @@ class Private_area extends CI_Controller {
     {
       $this->load->model("Cart_model");
       $page_data['count_data'] = $this->Cart_model->fetch_data($this->session->userdata('id'));
+      $page_data['fetch_data'] = $this->Cart_model->fetch_data($this->session->userdata('id'));
       $page_data['total_price'] = $this->Cart_model->total($this->session->userdata('id'));
       $page_data['fetch_user'] = $this->session->userdata('name');
       $page_data['page_title'] = 'User Checkout';
@@ -119,10 +120,10 @@ class Private_area extends CI_Controller {
               } 
             }
           }else{
-              echo 'bo products to checkout';
+              echo 'No products to checkout';
           }
     
-          $this->thankyou();
+          redirect('private_area/thankyou');
         } else{
           $this->product_view();
         }
@@ -133,6 +134,8 @@ class Private_area extends CI_Controller {
     }
 
     public function thankyou(){
+      $this->load->model("Cart_model");
+      $page_data['count_data'] = $this->Cart_model->fetch_data($this->session->userdata('id'));
       $page_data['page_title'] = 'Order Placed';
       $page_data['page'] = 'thankyou';
       $this->load->view("front/index", $page_data);
