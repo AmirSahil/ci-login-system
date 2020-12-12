@@ -181,6 +181,7 @@ button:hover {
 }
 
 .nav-button{
+  padding: 0 1.2rem;
   background: rgb(233, 233, 233);
   color: rgb(34, 34, 34);
   transition: all 0.3s ease-in-out;
