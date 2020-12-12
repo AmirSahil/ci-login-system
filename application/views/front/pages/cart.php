@@ -1,17 +1,5 @@
 <!--Section: Block Content-->
 
-<section>
-  <!--Grid row-->
-  <div class="row main-container mt-5">
-
-    <!--Grid column-->
-    <div class="col-lg-8 left-cart">
-    
-      <!-- Card -->
-      <div class="mb-3 card">
-        <div class="pt-4 card-body">
-
-                <h5 class="mb-4">Cart&nbsp;<small class="text-gray"></small></h5>
 
 
 
@@ -19,9 +7,28 @@
           <?php
 
           if($fetch_data->num_rows() > 0) {
+            ?>
+            <section>
+  <!--Grid row-->
+  <div class="row main-container mt-5">
+
+    <!--Grid column-->
+    <?php
+    if($fetch_data->num_rows() > 0){
+    echo '<div class="col-lg-8 left-cart">';
+    } else{
+      echo '<div class="col-lg-12 left-cart">';
+    }
+    ?>
+      <!-- Card -->
+      <div class="mb-3 card">
+        <div class="pt-4 card-body">
+
+                <h5 class="mb-4">Cart&nbsp;<small class="text-gray">(<?php echo $fetch_data->num_rows();?> Items)</small></h5>
+              
+                
+                <?php
             foreach($fetch_data->result() as $row){
-              $count = 0;
-              if($row->user_id == $this->session->userdata('id')){
           ?>
           <hr class="mb-4">
           <div class="row mb-4">
@@ -52,11 +59,7 @@
             </div>
           </div>
           <?php 
-              }
-            }
-            foreach($fetch_data->result() as $row){
-              echo $row->name;
-            }
+              } 
           ?>
           
                   </div>
@@ -79,7 +82,7 @@
           
                     <ul class="list-group list-group-flush">
                       <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-                        Temporary amount
+                        Bill amount
                         <?php
           
                         if($fetch_data->num_rows() > 0) {
@@ -95,7 +98,17 @@
                       </li>
                       <li class="list-group-item d-flex justify-content-between align-items-center px-0">
                         Shipping
-                        <span>₹600/-</span>
+
+                        <?php
+          
+                        if($total > 0) {
+                          $shipping = 500;
+                        }
+                        else{
+                          $shipping = 0;
+                        }
+              ?>
+                        <span>₹<?php echo $shipping;?>/-</span>
                       </li>
                       <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                         <div>
@@ -104,7 +117,7 @@
                             <p class="mb-0">(including VAT)</p>
                           </strong>
                         </div>
-                        <span><strong>₹<?php echo $total + 600;?>/-</strong></span>
+                        <span><strong>₹<?php echo $total + $shipping;?>/-</strong></span>
                       </li>
                     </ul>
           
@@ -125,8 +138,31 @@
           <?php
           } else{
           ?>
+          <section>
+  <!--Grid row-->
+  <div class="row main-container mt-5">
+
+    <!--Grid column-->
+    <?php
+    if($fetch_data->num_rows() > 0){
+    echo '<div class="col-lg-8 left-cart">';
+    } else{
+      echo '<div class="col-lg-12 left-cart">';
+    }
+    ?>
+      <!-- Card -->
+      <div class="mb-3 card">
+        <div class="pt-4 card-body">
+
+                <h5 class="mb-4">Cart&nbsp;<small class="text-gray">(<?php echo $fetch_data->num_rows();?> Items)</small></h5>
           <hr class="mb-4">
             <h5 >No items in your cart, <?php echo $fetch_user;?></h5>
+            
+        </div>
+        
+      </div>
+      <button type="button" class="btn btn-dark btn-block rounded-0 cart-button mt-4"><i class="fas fa-chevron-left"></i>  &nbsp;&nbsp;<a href="<?php echo base_url();?>private_area/" class="cart-button"> Continue Shopping</a></button>
+  </div>
 
 <?php
 }

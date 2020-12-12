@@ -16,6 +16,8 @@ class Private_area extends CI_Controller {
  function index()
  {
     $this->load->model("Home_model");
+    $this->load->model("Cart_model");
+    $page_data['count_data'] = $this->Cart_model->fetch_data($this->session->userdata('id'));
     $page_data['fetch_data'] = $this->Home_model->fetch_data();
     $page_data['fetch_user'] = $this->session->userdata('name');
     $page_data['page_title'] = 'User Home';
@@ -28,8 +30,9 @@ class Private_area extends CI_Controller {
     {
         $this->load->model("Viewproduct_model");
         $this->load->model("Cart_model");
+        $page_data['count_data'] = $this->Cart_model->fetch_data($this->session->userdata('id'));
         $page_data['edit'] = $this->Viewproduct_model->view_products($this->uri->segment('3'));
-        $page_data['fetch_data'] = $this->Cart_model->fetch_data();
+        $page_data['fetch_data'] = $this->Cart_model->fetch_data($this->session->userdata('id'));
         $page_data['page_title'] = 'Product View';
         $page_data['page'] = 'productview';
         $this->load->view("front/index", $page_data);
@@ -67,7 +70,8 @@ class Private_area extends CI_Controller {
 
     public function cart(){
       $this->load->model("Cart_model");
-      $page_data['fetch_data'] = $this->Cart_model->fetch_data();
+      $page_data['count_data'] = $this->Cart_model->fetch_data($this->session->userdata('id'));
+      $page_data['fetch_data'] = $this->Cart_model->fetch_data($this->session->userdata('id'));
       $page_data['total_price'] = $this->Cart_model->total($this->session->userdata('id'));
       $page_data['fetch_user'] = $this->session->userdata('name');
       $page_data['page_title'] = 'User Cart';
@@ -78,7 +82,7 @@ class Private_area extends CI_Controller {
     public function checkout()
     {
       $this->load->model("Cart_model");
-      $page_data['fetch_data'] = $this->Cart_model->fetch_data();
+      $page_data['count_data'] = $this->Cart_model->fetch_data($this->session->userdata('id'));
       $page_data['total_price'] = $this->Cart_model->total($this->session->userdata('id'));
       $page_data['fetch_user'] = $this->session->userdata('name');
       $page_data['page_title'] = 'User Checkout';
@@ -92,7 +96,7 @@ class Private_area extends CI_Controller {
       if($this->session->userdata('id')){
 				if($this->input->post('upload')){
           $this->load->model("Cart_model");
-          $fetch_data = $this->Cart_model->fetch_data();
+          $fetch_data = $this->Cart_model->fetch_data($this->session->userdata('id'));
           if($fetch_data->num_rows() > 0) {
             foreach($fetch_data->result() as $row){
               if($row->user_id == $this->session->userdata('id')){
@@ -136,6 +140,7 @@ class Private_area extends CI_Controller {
 
     public function myorders(){
       $this->load->model('Cart_model');
+      $page_data['count_data'] = $this->Cart_model->fetch_data($this->session->userdata('id'));
       $page_data['fetch_details'] = $this->Cart_model->fetch_products();
       $page_data['fetch_order'] = $this->Cart_model->fetch_orders();
       $page_data['page_title'] = 'My Orders';

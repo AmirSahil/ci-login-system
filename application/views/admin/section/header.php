@@ -11,9 +11,11 @@
     <!-- Custom fonts for this template-->
     <link href="<?php echo base_url();?>assets/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url();?>assets/admin/css/style.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    
+    
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
+
 
     <!-- Custom styles for this template-->
     <link href="<?php echo base_url();?>assets/admin/css/sb-admin-2.min.css" rel="stylesheet">
@@ -42,7 +44,13 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <?php 
+            if ($this->uri->segment('2') == ''){
+                echo '<li class="nav-item active">';
+            }else{
+                echo '<li class="nav-item">';
+            }
+            ?>
                 <a class="nav-link" href="<?php echo base_url();?>admin">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
@@ -51,21 +59,15 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Addons
-            </div>
-
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
+                    <span>User Pages</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
                         <a class="collapse-item" target="_blank" href="<?php echo base_url(); ?>login">Login</a>
                         <a class="collapse-item" target="_blank" href="<?php echo base_url(); ?>register">Register</a>
                         <div class="collapse-divider"></div>
@@ -76,31 +78,51 @@
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
-            <li class="nav-item">
+            <?php 
+            if ($this->uri->segment('2') == 'users'){
+                echo '<li class="nav-item active">';
+            }else{
+                echo '<li class="nav-item">';
+            }
+            ?>
                 <a class="nav-link" href="<?php echo base_url();?>admin/users">
                     <i class="fas fa-fw fa-user-alt"></i>
                     <span>Users</span></a>
             </li>
-            <li class="nav-item">
+            <?php 
+            if ($this->uri->segment('2') == 'products'){
+                echo '<li class="nav-item active">';
+            }else{
+                echo '<li class="nav-item">';
+            }
+            ?>
                 <a class="nav-link" href="<?php echo base_url();?>admin/products">
                     <i class="fas fa-fw fa-circle"></i>
                     <span>Products</span></a>
             </li>
-            <li class="nav-item">
+            <?php 
+            if ($this->uri->segment('2') == 'usercart'){
+                echo '<li class="nav-item active">';
+            }else{
+                echo '<li class="nav-item">';
+            }
+            ?>
                 <a class="nav-link" href="<?php echo base_url();?>admin/usercart">
                     <i class="fas fa-fw fa-shopping-basket"></i>
                     <span>Users Cart</span></a>
             </li>
-            <li class="nav-item">
+            <?php 
+            if ($this->uri->segment('2') == 'orders'){
+                echo '<li class="nav-item active">';
+            }else{
+                echo '<li class="nav-item">';
+            }
+            ?>
                 <a class="nav-link" href="<?php echo base_url();?>admin/orders">
                     <i class="fas fa-fw fa-shopping-bag"></i>
                     <span>Orders</span></a>
             </li>
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url();?>admin/addproducts">
-                    <i class="fas fa-fw fa-shopping-basket"></i>
-                    <span>Add Products</span></a>
-            </li> -->
+            
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -125,28 +147,12 @@
 
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
-
-        <div class="topbar-divider d-none d-sm-block"></div>
-
-        <!-- Nav Item - User Information -->
-        <li class="nav-item dropdown no-arrow">
-            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <?php echo $this->session->userdata['admin_first_name']?></span>
-                <img class="img-profile rounded-circle"
-                    src="<?php echo base_url();?>assets/admin/img/undraw_profile.svg">
-            </a>
-            <!-- Dropdown - User Information -->
-            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="<?php echo base_url();?>admin/logout" data-toggle="modal" data-target="#logoutModal">
-                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Logout
-                </a>
-            </div>
-        </li>
-
+        <a class="btn border-left text-dark rounded-0 pl-4 mr-4" href="<?php echo base_url();?>admin/logout" data-toggle="modal" data-target="#logoutModal">
+            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-dark"></i>Logout
+        </a>
     </ul>
+
+    
 
 </nav>
 <!-- End of Topbar -->

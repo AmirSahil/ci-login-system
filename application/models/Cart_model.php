@@ -9,8 +9,8 @@ class Cart_model extends CI_Model
 		$this->db->insert("user_checkout", $data);
 	} 
 
-	function fetch_data(){
-		$query = $this->db->query("SELECT * FROM user_cart ORDER BY id ASC");
+	function fetch_data($id){
+		$query = $this->db->query("SELECT * FROM user_cart WHERE user_id = $id");
 		return $query;
 	  }  
 

@@ -8,7 +8,7 @@
 </div>
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <a class="btn btn-dark btn-md float-right" href="<?php echo base_url();?>admin/addusers">
+    <a class="btn btn-dark btn-md float-right rounded-0" href="<?php echo base_url();?>admin/addusers">
         <i class="fas fa-fw fa-user-alt"></i>
         <span>Add Users</span>
     </a>

@@ -1,81 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><?php echo $page_title;?></title>
+    <!-- Font -->
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
 
-<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="<?php echo base_url();?>private_area" class="logo">LOGO</a>
+        <ul>
+          <li><a href="<?php echo base_url();?>private_area">Home</a></li>
 
-    <title><?php $page_title;?></title>
+          <?php
 
-    <!-- Custom fonts for this template-->
-    <link href="<?php echo base_url();?>assets/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+          if ($page_title == 'Login'){
+            echo '<li><a class="nav-button" href="register">Register</a></li>';
+            echo '<li><a class="nav-button" href="admin">Admin Login</a></li>';
+          } else if ($page_title == 'Register'){
+            echo '<li><a class="nav-button" href="login">Login</a></li>';
+            echo '<li><a class="nav-button" href="admin">Admin Login</a></li>';
+          } else if($page_title == 'User Home' or $page_title == 'User Cart' or $page_title == 'User Checkout' or $page_title == 'Product View' or $page_title == 'Order Placed' or $page_title == 'My Orders'){
+            echo '<li><a href="'.base_url().'private_area/myorders">My orders</a></li>';
+            echo '<li><a class="nav-button" href="'.base_url().'private_area/cart"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp;Cart</a></li>';
+            echo '<li><a class="nav-button" href="'.base_url().'private_area/logout">Logout</a></li>';
+          } else{
+            echo '<li><a class="nav-button" href="login">Login</a></li>';
+            echo '<li><a class="nav-button" href="register">Register</a></li>';
+            echo '<li><a class="nav-button" href="admin">Admin Login</a></li>';
+          }
+          ?>
+        </ul>
+      </nav>
+    </header>
 
-    <!-- Custom styles for this template-->
-    <link href="<?php echo base_url();?>assets/admin/css/sb-admin-2.min.css" rel="stylesheet">
-
-</head>
-
-<body class="bg-gradient-dark">
-
-    <div class="container">
-
-        <!-- Outer Row -->
-        <div class="row justify-content-center">
-
-            <div class="col-xl-7 col-lg-6 col-md-9">
-
-                <div class="card o-hidden border-0 shadow-lg my-5">
-                    <div class="card-body p-0">
-                        <!-- Nested Row within Card Body -->
-                        <div class="row justify-content-center">
-                        
-                            <div class="col-lg-9 col-md-12">
-                                <div class="p-5">
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
-                                    </div>
-                                    <form class="user" method="post" action="">
-                                        <div class="form-group">
-                                            <input type="email" name="email_id" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" name="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
-                                        </div>
-                                        <input type="submit" value="Login" class="btn btn-dark btn-user btn-block">
-                                        
-                                    </form>
-                                    
-                                </div>
-                            </div>
-                        </div>
+<body>
+<div class="login">
+            <?php
+                if($this->session->flashdata('message'))
+                {
+                    echo '
+                    <div class="alert alert-success">
+                        '.$this->session->flashdata("message").'
                     </div>
-                </div>
-
-            </div>
-
+                    ';
+                }
+            ?>
+            <h1>Admin Login</h1>
+            <form class="user" method="post" action="">
+                <input type="email" name="email_id" placeholder="Email">
+                <input type="password" name="password" placeholder="Password">
+                <input type="submit" value="Login" class="button">
+            </form>
+            
         </div>
+    <section>
+    <span class="text-danger"><?php echo form_error('email_id'); ?></span>
+    <span class="text-danger"><?php echo form_error('password'); ?></span>
+    </section>
 
-    </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="<?php echo base_url();?>assets/admin/<?php echo base_url();?>assets/admin/vendor/jquery/jquery.min.js"></script>
-    <script src="<?php echo base_url();?>assets/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="<?php echo base_url();?>assets/admin/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="<?php echo base_url();?>assets/admin/js/sb-admin-2.min.js"></script>
-
+  
+                                    
+                                    
+              
 </body>
 
 </html>

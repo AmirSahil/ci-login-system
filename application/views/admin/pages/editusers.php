@@ -1,6 +1,6 @@
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4 pl-4">
-    <a class="btn btn-dark btn-md float-right" href="<?php echo base_url();?>admin/users">
+    <a class="btn btn-dark btn-md float-right rounded-0" href="<?php echo base_url();?>admin/users">
         <i class="fas fa-fw fa-arrow-left"></i>
         <span> &nbsp; Back</span>
     </a>
@@ -63,6 +63,6 @@
         </div>
         <div class="form-group row pr-5 pt-2">
             <div class="col-xs-6">
-                <input type="submit" class="btn btn-dark btn-md" name="upload" value="Edit"/>
+                <input type="submit" class="btn btn-dark btn-md rounded-0" name="upload" value="Edit"/>
             </div>
         </div>
